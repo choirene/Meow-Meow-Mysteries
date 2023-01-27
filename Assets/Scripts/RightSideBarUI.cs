@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class RightSideBarUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool isPanelActive;
+    public GameObject activePanel;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        isPanelActive = false;
+        activePanel = null;
     }
 }
