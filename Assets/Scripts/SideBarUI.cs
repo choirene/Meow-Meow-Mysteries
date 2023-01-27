@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RightSideBarUI : MonoBehaviour
+public class SideBarUI : MonoBehaviour
 {
     public bool isPanelActive;
     public GameObject activePanel;

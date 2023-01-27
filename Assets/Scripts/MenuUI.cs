@@ -5,7 +5,7 @@ using UnityEngine;
 public class MenuUI : MonoBehaviour
 {
     public GameObject menuPanel;
-    public RightSideBarUI sideBarUI;
+    public SideBarUI sideBarUI;
     public void TogglePanel()
     {
         if(!menuPanel.activeSelf)
