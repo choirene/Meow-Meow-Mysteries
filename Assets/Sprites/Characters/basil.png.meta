@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f05c15bc748d94268a3ac6782c27f211
+guid: 3b0b6b330b4c44d0c8950b42838ee35c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pipo-nekonin007_0
+      name: basil_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c510c12a7b13b4e93abdf449b2032d9e
-      internalID: -2051334041
+      spriteID: 82d9314a6cacf46508a50589810a9428
+      internalID: -805144730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_1
+      name: basil_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d98f4553ed944dd0a3facb289c6abe0
-      internalID: -470496198
+      spriteID: b003a012687134b869a4ebe85c7eed09
+      internalID: 127721410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_2
+      name: basil_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ac651c7342a346ea9f5305ac6cc7b32
-      internalID: -1449068395
+      spriteID: 484aa0dff587d43969898651fa3fbcab
+      internalID: -1600045686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_3
+      name: basil_3
       rect:
         serializedVersion: 2
         x: 0
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 069cd145785c046d2b43c42c0a555938
-      internalID: 435848533
+      spriteID: 3a084cd9bd0154905bc73d56ab41ac26
+      internalID: -187630785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_4
+      name: basil_4
       rect:
         serializedVersion: 2
         x: 32
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82d1623f25e8344e09db950073cd1d79
-      internalID: -1939722195
+      spriteID: 27414ad2b37784f468a3cc422da61059
+      internalID: -329358419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_5
+      name: basil_5
       rect:
         serializedVersion: 2
         x: 64
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f9d4bda2a3e34a968ae31da6fb1eacc
-      internalID: -167390464
+      spriteID: 0a911102d30394c029076d6faab5f356
+      internalID: 1185865029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_6
+      name: basil_6
       rect:
         serializedVersion: 2
         x: 0
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62cb31f850fd243c0b50dedbe7ac3cfd
-      internalID: -1107740755
+      spriteID: 753e9b8cde1f445c6a0e5215b2b73589
+      internalID: -869178397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_7
+      name: basil_7
       rect:
         serializedVersion: 2
         x: 32
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3667e395c6fa4f8fae84407a795ab8f
-      internalID: -1575836707
+      spriteID: 36584ae8f824341a192970034bd4ce18
+      internalID: -1019892335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_8
+      name: basil_8
       rect:
         serializedVersion: 2
         x: 64
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 649956ab16f894106b067c74bf0d65ab
-      internalID: 531196010
+      spriteID: a9afafcf4b6714b75a57637684ca3a9d
+      internalID: 827875527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_9
+      name: basil_9
       rect:
         serializedVersion: 2
         x: 0
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcbb12c530a97404fb593523db68fd55
-      internalID: -578650236
+      spriteID: c44dbf85bb89d43e78901c73e76b488f
+      internalID: 1952049266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_10
+      name: basil_10
       rect:
         serializedVersion: 2
         x: 32
@@ -341,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69ce020a1e08048b48f555e85c2384df
-      internalID: -1550966450
+      spriteID: 782fce3d218d64bc48a58135dcf98638
+      internalID: -1350421584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin007_11
+      name: basil_11
       rect:
         serializedVersion: 2
         x: 64
@@ -362,8 +362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ec0b2a9c55bd4e4f824be4cda195e61
-      internalID: 1828799475
+      spriteID: f82e6e534730147c5afd8d2696c1b764
+      internalID: 542717695
       vertices: []
       indices: 
       edges: []
@@ -379,18 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pipo-nekonin007_3: 435848533
-      pipo-nekonin007_2: -1449068395
-      pipo-nekonin007_0: -2051334041
-      pipo-nekonin007_10: -1550966450
-      pipo-nekonin007_7: -1575836707
-      pipo-nekonin007_8: 531196010
-      pipo-nekonin007_9: -578650236
-      pipo-nekonin007_11: 1828799475
-      pipo-nekonin007_1: -470496198
-      pipo-nekonin007_5: -167390464
-      pipo-nekonin007_6: -1107740755
-      pipo-nekonin007_4: -1939722195
+      basil_0: -805144730
+      basil_2: -1600045686
+      basil_7: -1019892335
+      basil_1: 127721410
+      basil_9: 1952049266
+      basil_8: 827875527
+      basil_4: -329358419
+      basil_11: 542717695
+      basil_3: -187630785
+      basil_6: -869178397
+      basil_10: -1350421584
+      basil_5: 1185865029
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

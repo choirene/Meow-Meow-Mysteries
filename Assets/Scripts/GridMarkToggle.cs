@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GridMarkToggle : MonoBehaviour
 {
-    // public GameObject wrong;
-    // public GameObject right;
     [SerializeField] public List<GameObject> markSprites;
     public int currentMark;
 
