@@ -9,6 +9,7 @@ public class SolutionGenerator : MonoBehaviour
     List<string> locationList = new List<string> {"Bathroom", "Bedroom", "Living Room", "Kitchen", "Office"};
     List<string> activityList = new List<string> {"Grooming", "Playing", "Sleeping", "Eating", "Naughty"};
 
+    // make awake function not start?
     void Start()
     {
         for(int i = 0; i < 5; i++)
