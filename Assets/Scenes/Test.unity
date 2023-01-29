@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 85103788}
   - component: {fileID: 85103787}
   m_Layer: 0
-  m_Name: Hints
+  m_Name: HintGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30854,7 +30854,7 @@ GameObject:
   - component: {fileID: 1130595089}
   m_Layer: 0
   m_Name: Percy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -6,24 +6,44 @@ public class HintGenerator : MonoBehaviour
 {
     // // use hash table not dictionary
     // Hashtable hintLog = new Hashtable();
-    public List<Hint> hintList;
+    public List<Hint> hintList = new List<Hint>();
     public SolutionGenerator solution;
     public List<List<string>> solutionList = new List<List<string>>();
     
     void Start()
     {
-        solutionList = solution.solutionList;
-        Hint oneHint = OneToOneHintGenerator();
-        string convertedHint = oneHint.ConvertToDialogue();
-        Debug.Log(convertedHint);
-        Hint twoHint = TwoToOneHintGenerator();
-        string convertedTwoHint = twoHint.ConvertToDialogue();
-        Debug.Log(convertedTwoHint);
+        solutionList = solution.giveSolution();
+        InitialHintGeneration();
+        foreach(var hint in hintList)
+        {
+            Debug.Log(hint.ConvertToDialogue());
+        }
     }
 
     void Update()
     {
         
+    }
+
+    public void InitialHintGeneration()
+    {
+        while(hintList.Count < 4)
+        {
+            Hint newHint = TwoToOneHintGenerator();
+            if(!hintList.Contains(newHint))
+            {
+                hintList.Add(newHint);
+            }
+        }
+        while(hintList.Count < 6)
+        {
+            Hint newHint = OneToOneHintGenerator();
+            if(!hintList.Contains(newHint))
+            {
+                hintList.Add(newHint);
+            }
+        }
+
     }
 
     int[] GenerateCategories()
