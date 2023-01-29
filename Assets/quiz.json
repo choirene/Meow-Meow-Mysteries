@@ -1,0 +1,72 @@
+{
+    "Which city is Dong-eui University located in?" : 
+    {
+        "Busan": true,
+        "Incheon": false,
+        "Anyang": false,
+        "Daegu": false
+    },
+    "Which species does the scientific name 'Glaucidium tephronotum' refer to?" :
+    {
+        "Pearl-spotted owlet": false,
+        "Red-chested owlet": true,
+        "Chestnut-backed owlet" : false,
+        "Elf owl": false
+    },
+    "Which song was included on the album 'Dedicated' by Carly Rae Jepsen?" :
+    {
+        "Now I Don't Hate California After All": false,
+        "Call Me Maybe": false,
+        "When I Needed You": false,
+        "Too Much": true
+    },
+    "Which group was the singer Sohee a member of?" :
+    {
+        "Wonder Girls" : true,
+        "Girls Generation" : false,
+        "T-ARA" : false,
+        "Brown Eyed Girls" : false
+    },
+    "Which song was included on the album 'Riot!' by Paramore?" :
+    {
+        "All I Wanted": false,
+        "That's What You Get": true,
+        "Emergency": false,
+        "Ain't It Fun": false
+    },
+    "Which species does the scientific name 'Glaucidium castanotum' refer to?" :
+    {
+        "Pearl-spotted owlet": false,
+        "Red-chested owlet": false,
+        "Chestnut-backed owlet" : true,
+        "Elf owl": false
+    },
+    "Which country won Gold in the Men's Field Hockey event at the 2004 Athens Olympics?" :
+    {
+        "Argentina" : false,
+        "Russia" : false,
+        "Germany" : false,
+        "Australia": true
+    },
+    "Which country won Gold in the Women's Indoor Volleyball event at the 2008 Beijing Olympics?" :
+    {
+        "Brazil" : true,
+        "China" : false,
+        "Italy" : false,
+        "Cuba": false
+    },
+    "In the novel 'Rebecca' written by Daphne du Maurier, where is Manderley?" :
+    {
+        "Monte Carlo" : false,
+        "Cornwall" : true,
+        "Brittany" : false,
+        "Devon" : false
+    },
+    "Which species does the scientific name 'Corytophanes percarinatus' refer to?" :
+    {
+        "Red-headed basilisk": false,
+        "Serrated casquehead iguana": false,
+        "Guatemalan helmeted basilisk" : true,
+        "Helmeted iguana": false
+    }
+}

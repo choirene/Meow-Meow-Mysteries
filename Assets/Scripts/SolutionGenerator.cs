@@ -6,8 +6,8 @@ public class SolutionGenerator : MonoBehaviour
 {
     public List<List<string>> solutionList = new List<List<string>>();
     List<string> catList = new List<string> { "Coco", "Basil", "Hazel", "Jackie", "Lukie" };
-    List<string> activityList = new List<string> {"Grooming", "Playing", "Sleeping", "Eating", "Naughty"};
-    List<string> locationList = new List<string> {"Bathroom", "Bedroom", "Living Room", "Kitchen", "Office"};
+    List<string> activityList = new List<string> {"grooming", "playing", "sleeping", "eating", "naughty"};
+    List<string> locationList = new List<string> {"bathroom", "bedroom", "living room", "kitchen", "office"};
 
     void Awake()
     {
@@ -38,8 +38,6 @@ public class SolutionGenerator : MonoBehaviour
     }
 
     void Start() {
-        Debug.Log(solutionList.Count);
-        Debug.Log(solutionList[0][0]);    
     }
 
     public List<List<string>> giveSolution()
