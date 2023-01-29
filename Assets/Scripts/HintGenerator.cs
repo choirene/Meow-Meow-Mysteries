@@ -6,15 +6,15 @@ public class HintGenerator : MonoBehaviour
 {
     // use hash table not dictionary
     Hashtable hintLog = new Hashtable();
-    public List<List<string>> solution;
+    public SolutionGenerator solution;
+    public List<List<string>> solutionList = new List<List<string>>();
     
-    // Start is called before the first frame update
     void Start()
     {
-        
+        solutionList = solution.solutionList;
+        Debug.Log(solutionList);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -31,12 +31,12 @@ public class HintGenerator : MonoBehaviour
         return new [] { randomCategory, randomCategoryTwo };    
     }
 
-    Hashtable OneToOneHintGenerator()
-    {
+    // Hashtable OneToOneHintGenerator()
+    // {
 
 
-        return new Hashtable();
-    }
+    //     return new Hashtable();
+    // }
 
 //     var cities = new Hashtable(){
 // 	{"UK", "London, Manchester, Birmingham"},

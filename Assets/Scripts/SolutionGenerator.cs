@@ -4,37 +4,47 @@ using UnityEngine;
 
 public class SolutionGenerator : MonoBehaviour
 {
-    public List<List<string>> solution = new List<List<string>>();
+    public List<List<string>> solutionList = new List<List<string>>();
     List<string> catList = new List<string> { "Coco", "Basil", "Hazel", "Jackie", "Lukie" };
-    List<string> locationList = new List<string> {"Bathroom", "Bedroom", "Living Room", "Kitchen", "Office"};
     List<string> activityList = new List<string> {"Grooming", "Playing", "Sleeping", "Eating", "Naughty"};
+    List<string> locationList = new List<string> {"Bathroom", "Bedroom", "Living Room", "Kitchen", "Office"};
 
-    // make awake function not start?
-    void Start()
+    void Awake()
     {
         for(int i = 0; i < 5; i++)
         {
             List<string> randomEvent = new List<string>();
 
-            int randomCat = Random.Range(0,5);
-            int randomLocation = Random.Range(0,5);
-            int randomActivity = Random.Range(0,5);
+            int upperRange = 5 - solutionList.Count;
+
+            int randomCat = Random.Range(0,upperRange);
+            int randomActivity = Random.Range(0,upperRange);
+            int randomLocation = Random.Range(0,upperRange);
 
             string cat = catList[randomCat];
-            string location = locationList[randomLocation];
             string activity = activityList[randomActivity];
+            string location = locationList[randomLocation];
 
             randomEvent.Add(cat);
-            randomEvent.Add(location);
             randomEvent.Add(activity);
+            randomEvent.Add(location);
 
-            solution.Add(randomEvent);
+            catList.RemoveAt(randomCat);
+            activityList.RemoveAt(randomActivity);
+            locationList.RemoveAt(randomLocation);
+
+            solutionList.Add(randomEvent);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Start() {
+        Debug.Log(solutionList.Count);
+        Debug.Log(solutionList[0][0]);    
     }
+
+    public List<List<string>> giveSolution()
+    {
+        return solutionList;
+    }
+
 }
