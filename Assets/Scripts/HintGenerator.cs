@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class HintGenerator : MonoBehaviour
 {
-    // // use hash table not dictionary
-    // Hashtable hintLog = new Hashtable();
     public List<Hint> hintList = new List<Hint>();
+    public List<string> convertedHintList = new List<string>();
     public SolutionGenerator solution;
     public List<List<string>> solutionList = new List<List<string>>();
     
@@ -14,9 +13,9 @@ public class HintGenerator : MonoBehaviour
     {
         solutionList = solution.giveSolution();
         InitialHintGeneration();
-        foreach(var hint in hintList)
+        foreach(var hint in convertedHintList)
         {
-            Debug.Log(hint.ConvertToDialogue());
+            Debug.Log(hint);
         }
     }
 
@@ -25,25 +24,28 @@ public class HintGenerator : MonoBehaviour
         
     }
 
-    public void InitialHintGeneration()
+    void InitialHintGeneration()
     {
-        while(hintList.Count < 4)
+        while(convertedHintList.Count < 4)
         {
             Hint newHint = TwoToOneHintGenerator();
-            if(!hintList.Contains(newHint))
+            string convertedHint = newHint.ConvertToDialogue();
+            if(!convertedHintList.Contains(convertedHint))
             {
+                convertedHintList.Add(convertedHint);
                 hintList.Add(newHint);
             }
         }
-        while(hintList.Count < 6)
+        while(convertedHintList.Count < 6)
         {
             Hint newHint = OneToOneHintGenerator();
-            if(!hintList.Contains(newHint))
+            string convertedHint = newHint.ConvertToDialogue();
+            if(!convertedHintList.Contains(convertedHint))
             {
+                convertedHintList.Add(convertedHint);                
                 hintList.Add(newHint);
             }
         }
-
     }
 
     int[] GenerateCategories()
@@ -136,7 +138,7 @@ public class HintGenerator : MonoBehaviour
                 possibleFirstAgents.Add(i[newHint.categoryOne]);
             }
         }
-        int randomIndex = Random.Range(0,4);
+        int randomIndex = Random.Range(0,possibleFirstAgents.Count);
         newHint.firstAgentList.Add(possibleFirstAgents[randomIndex]);
 
         newHint.secondAgent = newEvent[newHint.categoryTwo];
