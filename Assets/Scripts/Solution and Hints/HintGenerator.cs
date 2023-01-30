@@ -2,52 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HintGenerator : MonoBehaviour
+public class HintGenerator
 {
-    public List<Hint> hintList = new List<Hint>();
-    public List<string> convertedHintList = new List<string>();
-    public SolutionGenerator solution;
-    public List<List<string>> solutionList = new List<List<string>>();
-    
-    void Start()
-    {
-        solutionList = solution.giveSolution();
-        InitialHintGeneration();
-        foreach(var hint in convertedHintList)
-        {
-            Debug.Log(hint);
-        }
-    }
-
-    void Update()
-    {
-        
-    }
-
-    void InitialHintGeneration()
-    {
-        while(convertedHintList.Count < 4)
-        {
-            Hint newHint = TwoToOneHintGenerator();
-            string convertedHint = newHint.ConvertToDialogue();
-            if(!convertedHintList.Contains(convertedHint))
-            {
-                convertedHintList.Add(convertedHint);
-                hintList.Add(newHint);
-            }
-        }
-        while(convertedHintList.Count < 6)
-        {
-            Hint newHint = OneToOneHintGenerator();
-            string convertedHint = newHint.ConvertToDialogue();
-            if(!convertedHintList.Contains(convertedHint))
-            {
-                convertedHintList.Add(convertedHint);                
-                hintList.Add(newHint);
-            }
-        }
-    }
-
     int[] GenerateCategories()
     {
         int randomCategory = Random.Range(0,3);
@@ -59,7 +15,7 @@ public class HintGenerator : MonoBehaviour
         return new [] { randomCategory, randomCategoryTwo };    
     }
 
-    List<string> EventGeneration()
+    List<string> EventGeneration(List<List<string>> solutionList)
     {
         int randomInt = Random.Range(0,5);
         List<string> newEvent = solutionList[randomInt];
@@ -77,14 +33,14 @@ public class HintGenerator : MonoBehaviour
         }
         return false;
     }
-
-    Hint OneToOneHintGenerator()
+    
+    public Hint OneToOneHintGenerator(List<List<string>> solutionList)
     {
         Hint newHint = new Hint();
 
         newHint.multiple = false;
 
-        List<string> newEvent = EventGeneration();
+        List<string> newEvent = EventGeneration(solutionList);
 
         int[] categories = GenerateCategories();
 
@@ -106,13 +62,13 @@ public class HintGenerator : MonoBehaviour
 
         return newHint;
     }
-    Hint TwoToOneHintGenerator()
+    public Hint TwoToOneHintGenerator(List<List<string>> solutionList)
     {
         Hint newHint = new Hint();
 
         newHint.multiple = true;
 
-        List<string> newEvent = EventGeneration();
+        List<string> newEvent = EventGeneration(solutionList);
 
         int[] categories = GenerateCategories();
 

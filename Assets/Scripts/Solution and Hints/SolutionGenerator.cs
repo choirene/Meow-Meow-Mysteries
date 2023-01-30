@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolutionGenerator : MonoBehaviour
+public class SolutionGenerator
 {
     public List<List<string>> solutionList = new List<List<string>>();
     List<string> catList = new List<string> { "Coco", "Basil", "Hazel", "Jackie", "Lukie" };
     List<string> activityList = new List<string> {"grooming", "playing", "sleeping", "eating", "naughty"};
     List<string> locationList = new List<string> {"bathroom", "bedroom", "living room", "kitchen", "office"};
 
-    void Awake()
+    public List<List<string>> generateSolution()
     {
+
         for(int i = 0; i < 5; i++)
         {
             List<string> randomEvent = new List<string>();
@@ -35,14 +36,7 @@ public class SolutionGenerator : MonoBehaviour
 
             solutionList.Add(randomEvent);
         }
-    }
 
-    void Start() {
-    }
-
-    public List<List<string>> giveSolution()
-    {
         return solutionList;
     }
-
 }
