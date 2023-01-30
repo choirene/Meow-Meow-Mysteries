@@ -717,6 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece9afa3c9a6e493bbd72482d2fd4c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  convertedHintList: []
   solution: {fileID: 936171426}
 --- !u!4 &85103788
 Transform:
@@ -27201,7 +27202,7 @@ GameObject:
   - component: {fileID: 936171427}
   - component: {fileID: 936171426}
   m_Layer: 0
-  m_Name: Solution
+  m_Name: SolutionGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
