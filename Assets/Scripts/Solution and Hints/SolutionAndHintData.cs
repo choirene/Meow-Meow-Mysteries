@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SolutionAndHintData : MonoBehaviour
 {
-    public SolutionGenerator solution = new SolutionGenerator();
+    SolutionGenerator solution = new SolutionGenerator();
     HintGenerator hintGenerator = new HintGenerator();
     public List<string> convertedHintList = new List<string>();
     public List<List<string>> solutionList = new List<List<string>>();
@@ -48,6 +48,4 @@ public class SolutionAndHintData : MonoBehaviour
             }
         }
     }
-
-
 }
