@@ -13,11 +13,29 @@ public class DialogueManager : MonoBehaviour
     public int currentCharacter;
     public TMP_Text textComponent;
 
+    public Dialogue dialogue;
+    public bool playerInRange;
+    public bool dialogueStarted;
 
-    // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.X) && playerInRange)
+        {
+            if(dialogueStarted)
+            {
+                DisplayNextSentence();
+            }
+            else
+            {
+                StartDialogue(dialogue);
+                dialogueStarted = true;
+            }
+        }
     }
 
     public void StartDialogue (Dialogue dialogue)
@@ -56,6 +74,24 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("End of Convo");
         dialoguePanel.SetActive(false);
         characterSprites[currentCharacter].SetActive(false);
+        dialogueStarted = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        if(other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            EndDialogue();
+        }
+    }
+
 
 }
