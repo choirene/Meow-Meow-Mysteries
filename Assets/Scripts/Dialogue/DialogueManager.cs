@@ -17,6 +17,18 @@ public class DialogueManager : MonoBehaviour
     public bool playerInRange;
     public bool dialogueStarted;
 
+    enum State 
+    {
+        greeting,
+        askForAction,
+        beg,
+        playGame,
+        bribe,
+        translate,
+        afterClue,
+        goodbye
+    }
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -71,7 +83,6 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        Debug.Log("End of Convo");
         dialoguePanel.SetActive(false);
         characterSprites[currentCharacter].SetActive(false);
         dialogueStarted = false;
