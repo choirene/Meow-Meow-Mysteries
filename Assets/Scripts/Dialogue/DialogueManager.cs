@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     // queue fifo collection
 
     public GameObject dialoguePanel;
+    public GameObject dialogueOptions;
     public List<GameObject> characterSprites;
     public int currentCharacter;
     public TMP_Text textComponent;
@@ -16,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     public Dialogue dialogue;
     public bool playerInRange;
     public bool dialogueStarted;
+    State currentState;
 
     enum State 
     {
@@ -26,7 +28,8 @@ public class DialogueManager : MonoBehaviour
         bribe,
         translate,
         afterClue,
-        goodbye
+        goodbye,
+        end
     }
 
     void Start()
@@ -44,13 +47,13 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                StartDialogue(dialogue);
+                StartDialogue();
                 dialogueStarted = true;
             }
         }
     }
 
-    public void StartDialogue (Dialogue dialogue)
+    public void StartDialogue ()
     {
         if(!dialoguePanel.activeInHierarchy)
         {
@@ -60,25 +63,66 @@ public class DialogueManager : MonoBehaviour
         currentCharacter = dialogue.id;
         characterSprites[currentCharacter].SetActive(true);
 
-        sentences.Clear();
-        foreach(string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
+        currentState = State.greeting;
+
+        // sentences.Clear();
+        // foreach(string sentence in dialogue.sentences)
+        // {
+        //     sentences.Enqueue(sentence);
+        // }
 
         DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        switch(currentState)
         {
-            EndDialogue();
-            return;
+            case State.greeting:
+                int greetingIndex = Random.Range(0, dialogue.greetings.Length);
+                textComponent.text = dialogue.greetings[greetingIndex];
+                currentState = State.askForAction;
+                break;
+            case State.askForAction:
+                textComponent.text = dialogue.askForAction;
+                dialogueOptions.SetActive(true);
+                break;
+            case State.beg:
+                break;
+            case State.goodbye:
+                textComponent.text = dialogue.goodbye;
+                currentState = State.end;
+                break;
+            case State.end:
+                EndDialogue();
+                break;
+            default:
+                Debug.Log("ioasjdf");
+                break;
+
         }
 
-        string sentence = sentences.Dequeue();
-        textComponent.text = sentence;
+        // if(sentences.Count == 0)
+        // {
+        //     EndDialogue();
+        //     return;
+        // }
+
+        // string sentence = sentences.Dequeue();
+        // textComponent.text = sentence;
+    }
+    public void ClickBeg()
+    {
+        currentState = State.beg;
+        dialogueOptions.SetActive(false);
+        DisplayNextSentence();
+    }
+
+    public void ClickQuit()
+    {
+        currentState = State.goodbye;
+        dialogueOptions.SetActive(false);
+        DisplayNextSentence();
     }
 
     public void EndDialogue()
