@@ -33,7 +33,8 @@ public class SolutionAndHintData : MonoBehaviour
         {
             Hint newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
             string convertedHint = newHint.ConvertToDialogue();
-            if(!convertedHintList.Contains(convertedHint))
+            bool flag = ValidateHint(convertedHint);
+            if(flag)
             {
                 convertedHintList.Add(convertedHint);
             }
@@ -42,10 +43,56 @@ public class SolutionAndHintData : MonoBehaviour
         {
             Hint newHint = hintGenerator.OneToOneHintGenerator(solutionList);
             string convertedHint = newHint.ConvertToDialogue();
-            if(!convertedHintList.Contains(convertedHint))
+            bool flag = ValidateHint(convertedHint);
+            if(flag)
             {
                 convertedHintList.Add(convertedHint);                
             }
+        }
+    }
+
+    public void GenerateRandomHint()
+    {
+        int type = Random.Range(0,5);
+        if(type == 0)
+        {
+            Hint newHint = hintGenerator.OneToOneHintGenerator(solutionList);
+            string convertedHint = newHint.ConvertToDialogue();
+            bool flag = ValidateHint(convertedHint);
+            while(!flag)
+            {
+                newHint = hintGenerator.OneToOneHintGenerator(solutionList);
+                convertedHint = newHint.ConvertToDialogue();
+                flag = ValidateHint(convertedHint);
+            }
+            convertedHintList.Add(convertedHint);
+        }
+        else
+        {
+            Hint newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
+            string convertedHint = newHint.ConvertToDialogue();
+            bool flag = ValidateHint(convertedHint);
+            while(!flag)
+            {
+                newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
+                convertedHint = newHint.ConvertToDialogue();
+                flag = ValidateHint(convertedHint);
+            }
+            convertedHintList.Add(convertedHint);
+        }
+
+        // CALL UPDATE HINTS
+    }
+
+    public bool ValidateHint(string hint)
+    {
+        if(!convertedHintList.Contains(hint))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

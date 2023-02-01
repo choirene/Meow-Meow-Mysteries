@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
         playGame,
         bribe,
         translate,
+        showClue,
         afterClue,
         goodbye,
         end
@@ -101,15 +102,6 @@ public class DialogueManager : MonoBehaviour
                 break;
 
         }
-
-        // if(sentences.Count == 0)
-        // {
-        //     EndDialogue();
-        //     return;
-        // }
-
-        // string sentence = sentences.Dequeue();
-        // textComponent.text = sentence;
     }
     public void ClickBeg()
     {
@@ -123,6 +115,12 @@ public class DialogueManager : MonoBehaviour
         currentState = State.goodbye;
         dialogueOptions.SetActive(false);
         DisplayNextSentence();
+    }
+
+    public void ShowClue()
+    {
+        // call generate random hint
+        // solution data . last -> display
     }
 
     public void EndDialogue()
