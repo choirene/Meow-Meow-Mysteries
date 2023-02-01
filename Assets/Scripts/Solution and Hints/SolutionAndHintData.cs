@@ -8,6 +8,7 @@ public class SolutionAndHintData : MonoBehaviour
     HintGenerator hintGenerator = new HintGenerator();
     public List<string> convertedHintList = new List<string>();
     public List<List<string>> solutionList = new List<List<string>>();
+    public GameObject displayHints;
 
     void Awake() 
     {
@@ -16,11 +17,6 @@ public class SolutionAndHintData : MonoBehaviour
     void Start()
     {
         InitialHintGeneration();
-        foreach(var hint in convertedHintList)
-        {
-            Debug.Log(hint);
-        }
-
     }
     void Update()
     {
@@ -81,7 +77,8 @@ public class SolutionAndHintData : MonoBehaviour
             convertedHintList.Add(convertedHint);
         }
 
-        // CALL UPDATE HINTS
+        // displayHints.GetComponent<DisplayHints>().UpdateHints(convertedHintList);
+        // FIGURE OUT HOW TO LIVE UPDATE THE HINTS LIST TMP
     }
 
     public bool ValidateHint(string hint)

@@ -11,11 +11,6 @@ public class DisplayHints : MonoBehaviour
     List<string> hintList = new List<string>();
     void Start()
     {
-        UpdateHints();
-    }
-
-    public void UpdateHints()
-    {
         hintList = data.convertedHintList;
         string hintText = string.Empty;
 
@@ -24,6 +19,19 @@ public class DisplayHints : MonoBehaviour
             hintText = hintText + "- " + hint + "\n";
         }
 
+        textComponent.text = hintText;
+    }
+
+    public void UpdateHints()
+    {
+        hintList = data.convertedHintList;
+
+        string hintText = string.Empty;
+
+        foreach(var hint in hintList)
+        {
+            hintText = hintText + "- " + hint + "\n";
+        }
         textComponent.text = hintText;
     }
 

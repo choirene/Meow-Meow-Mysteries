@@ -5,9 +5,6 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    Queue<string> sentences;
-    // queue fifo collection
-
     public GameObject dialoguePanel;
     public GameObject dialogueOptions;
     public List<GameObject> characterSprites;
@@ -35,7 +32,6 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        sentences = new Queue<string>();
     }
 
     void Update()
@@ -66,12 +62,6 @@ public class DialogueManager : MonoBehaviour
 
         currentState = State.greeting;
 
-        // sentences.Clear();
-        // foreach(string sentence in dialogue.sentences)
-        // {
-        //     sentences.Enqueue(sentence);
-        // }
-
         DisplayNextSentence();
     }
 
@@ -89,6 +79,16 @@ public class DialogueManager : MonoBehaviour
                 dialogueOptions.SetActive(true);
                 break;
             case State.beg:
+                textComponent.text =dialogue.beg[1];
+                currentState = State.showClue;
+                break;
+            case State.showClue:
+                ShowClue();
+                currentState = State.afterClue;
+                break;
+            case State.afterClue:
+                textComponent.text = dialogue.afterClue;
+                currentState = State.goodbye;
                 break;
             case State.goodbye:
                 textComponent.text = dialogue.goodbye;
@@ -119,8 +119,10 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowClue()
     {
-        // call generate random hint
-        // solution data . last -> display
+        SolutionAndHintData solutionData = FindObjectOfType<SolutionAndHintData>();
+        solutionData.GenerateRandomHint();
+        string lastHint = solutionData.convertedHintList[^1];
+        textComponent.text = lastHint;
     }
 
     public void EndDialogue()
