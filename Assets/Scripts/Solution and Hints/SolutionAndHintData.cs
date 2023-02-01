@@ -77,7 +77,7 @@ public class SolutionAndHintData : MonoBehaviour
             convertedHintList.Add(convertedHint);
         }
 
-        // displayHints.GetComponent<DisplayHints>().UpdateHints(convertedHintList);
+        displayHints.GetComponent<DisplayHints>().UpdateHints();
         // FIGURE OUT HOW TO LIVE UPDATE THE HINTS LIST TMP
     }
 
