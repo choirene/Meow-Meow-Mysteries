@@ -79,8 +79,23 @@ public class DialogueManager : MonoBehaviour
                 dialogueOptions.SetActive(true);
                 break;
             case State.beg:
-                textComponent.text =dialogue.beg[1];
-                currentState = State.showClue;
+                if(Random.Range(0,dialogue.unhelpfulIndex) == 0)
+                {
+                    textComponent.text = dialogue.beg[1];
+                    currentState = State.showClue;
+                }
+                else
+                {
+                    textComponent.text = dialogue.beg[0];
+                    currentState = State.askForAction;
+                }
+
+                break;
+            case State.playGame:
+                break;
+            case State.bribe:
+                break;
+            case State.translate:
                 break;
             case State.showClue:
                 ShowClue();
@@ -88,7 +103,7 @@ public class DialogueManager : MonoBehaviour
                 break;
             case State.afterClue:
                 textComponent.text = dialogue.afterClue;
-                currentState = State.goodbye;
+                currentState = State.end;
                 break;
             case State.goodbye:
                 textComponent.text = dialogue.goodbye;

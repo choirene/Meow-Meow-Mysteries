@@ -6,8 +6,7 @@ using UnityEngine;
 {
     public string name;
     public int id;
-    [TextArea(2,4)] public string[] sentences;
-
+    public int unhelpfulIndex;
     [TextArea(3, 5)] [SerializeField] public string[] greetings;
     [TextArea(3,5)] [SerializeField] public string askForAction;
     [TextArea(3, 5)] [SerializeField] public string[] beg;

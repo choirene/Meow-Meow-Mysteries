@@ -37271,9 +37271,7 @@ MonoBehaviour:
   dialogue:
     name: Coco
     id: 0
-    sentences:
-    - Ugh. It's you.
-    - Go away.
+    unhelpfulIndex: 5
     greetings:
     - Ugh. It's you.
     - Go away.
@@ -37282,9 +37280,9 @@ MonoBehaviour:
     askForAction: What do you want.
     beg:
     - As if.
-    - '...Fine. '
-    playGame:
     - If you're willing to grovel, sure.
+    playGame:
+    - Ew. No.
     bribe:
     - Ew, no.
     - Oh, nice. Hand it over.
