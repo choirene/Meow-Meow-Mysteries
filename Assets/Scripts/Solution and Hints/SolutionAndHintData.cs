@@ -9,12 +9,22 @@ public class SolutionAndHintData : MonoBehaviour
     public List<string> convertedHintList = new List<string>();
     public List<List<string>> solutionList = new List<List<string>>();
     public GameObject displayHints;
-
+    public int naughtyCatId;
     public static SolutionAndHintData instance;
 
     void Awake() 
     {
         solutionList = solution.generateSolution();
+        int i = 0;
+        foreach(var solution in solutionList)
+        {
+            if(solution[1] == "naughty")
+            {
+                naughtyCatId = i;
+                break;
+            }
+            i++;
+        }
     }
     void Start()
     {
@@ -25,6 +35,7 @@ public class SolutionAndHintData : MonoBehaviour
         }
         instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
+        // need to figure out if this conflicts with awake....
 
         InitialHintGeneration();
     }
@@ -33,11 +44,6 @@ public class SolutionAndHintData : MonoBehaviour
     {
         return instance;
     }
-    void Update()
-    {
-        
-    }
-
     void InitialHintGeneration()
     {
         while(convertedHintList.Count < 3)

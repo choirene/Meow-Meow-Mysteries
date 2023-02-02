@@ -18,11 +18,10 @@ public class SolutionGenerator
 
             int upperRange = 5 - solutionList.Count;
 
-            int randomCat = Random.Range(0,upperRange);
             int randomActivity = Random.Range(0,upperRange);
             int randomLocation = Random.Range(0,upperRange);
 
-            string cat = catList[randomCat];
+            string cat = catList[i];
             string activity = activityList[randomActivity];
             string location = locationList[randomLocation];
 
@@ -30,7 +29,6 @@ public class SolutionGenerator
             randomEvent.Add(activity);
             randomEvent.Add(location);
 
-            catList.RemoveAt(randomCat);
             activityList.RemoveAt(randomActivity);
             locationList.RemoveAt(randomLocation);
 
