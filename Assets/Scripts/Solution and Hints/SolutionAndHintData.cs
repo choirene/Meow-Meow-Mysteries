@@ -10,13 +10,28 @@ public class SolutionAndHintData : MonoBehaviour
     public List<List<string>> solutionList = new List<List<string>>();
     public GameObject displayHints;
 
+    public static SolutionAndHintData instance;
+
     void Awake() 
     {
         solutionList = solution.generateSolution();
     }
     void Start()
     {
+        if(instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        instance = this;
+        GameObject.DontDestroyOnLoad(this.gameObject);
+
         InitialHintGeneration();
+    }
+
+    public static SolutionAndHintData GetInstance()
+    {
+        return instance;
     }
     void Update()
     {
@@ -25,7 +40,7 @@ public class SolutionAndHintData : MonoBehaviour
 
     void InitialHintGeneration()
     {
-        while(convertedHintList.Count < 4)
+        while(convertedHintList.Count < 3)
         {
             Hint newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
             string convertedHint = newHint.ConvertToDialogue();
@@ -35,7 +50,7 @@ public class SolutionAndHintData : MonoBehaviour
                 convertedHintList.Add(convertedHint);
             }
         }
-        while(convertedHintList.Count < 6)
+        while(convertedHintList.Count < 5)
         {
             Hint newHint = hintGenerator.OneToOneHintGenerator(solutionList);
             string convertedHint = newHint.ConvertToDialogue();
@@ -78,7 +93,6 @@ public class SolutionAndHintData : MonoBehaviour
         }
 
         displayHints.GetComponent<DisplayHints>().UpdateHints();
-        // FIGURE OUT HOW TO LIVE UPDATE THE HINTS LIST TMP
     }
 
     public bool ValidateHint(string hint)

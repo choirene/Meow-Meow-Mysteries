@@ -138,7 +138,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowClue()
     {
-        SolutionAndHintData solutionData = FindObjectOfType<SolutionAndHintData>();
+        SolutionAndHintData solutionData = SolutionAndHintData.GetInstance();
         solutionData.GenerateRandomHint();
         string lastHint = solutionData.convertedHintList[^1];
         textComponent.text = lastHint;
