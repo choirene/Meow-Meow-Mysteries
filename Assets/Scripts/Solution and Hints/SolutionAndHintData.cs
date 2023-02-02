@@ -10,6 +10,7 @@ public class SolutionAndHintData : MonoBehaviour
     public List<List<string>> solutionList = new List<List<string>>();
     public GameObject displayHints;
     public int naughtyCatId;
+    List<string> naughtyList = new List<string>();
     public static SolutionAndHintData instance;
 
     void Awake() 
@@ -21,6 +22,7 @@ public class SolutionAndHintData : MonoBehaviour
             if(solution[1] == "naughty")
             {
                 naughtyCatId = i;
+                naughtyList = solution;
                 break;
             }
             i++;
@@ -139,5 +141,9 @@ public class SolutionAndHintData : MonoBehaviour
         {
             return true;
         }
+    }
+
+    void NaughtyAction()
+    {
     }
 }
