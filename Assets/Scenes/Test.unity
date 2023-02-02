@@ -37258,6 +37258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddde9d7c042b40a08f851a4da4ca414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightSideBar: {fileID: 180335342}
+  leftSideBar: {fileID: 640707834}
   dialoguePanel: {fileID: 1595020109}
   dialogueOptions: {fileID: 318218783}
   characterSprites:

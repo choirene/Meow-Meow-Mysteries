@@ -5,6 +5,8 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public GameObject rightSideBar;
+    public GameObject leftSideBar;
     public GameObject dialoguePanel;
     public GameObject dialogueOptions;
     public List<GameObject> characterSprites;
@@ -57,6 +59,9 @@ public class DialogueManager : MonoBehaviour
             dialoguePanel.SetActive(true);
         }
 
+        rightSideBar.SetActive(false);
+        leftSideBar.SetActive(false);
+
         currentCharacter = dialogue.id;
         characterSprites[currentCharacter].SetActive(true);
 
@@ -89,7 +94,6 @@ public class DialogueManager : MonoBehaviour
                     textComponent.text = dialogue.beg[0];
                     currentState = State.askForAction;
                 }
-
                 break;
             case State.playGame:
                 break;
@@ -145,6 +149,9 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         characterSprites[currentCharacter].SetActive(false);
         dialogueStarted = false;
+        rightSideBar.SetActive(true);
+        leftSideBar.SetActive(true);
+
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
