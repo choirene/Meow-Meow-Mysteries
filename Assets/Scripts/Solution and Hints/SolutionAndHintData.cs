@@ -62,19 +62,19 @@ public class SolutionAndHintData : MonoBehaviour
         }
     }
 
-    public void GenerateRandomHint()
+    public void GenerateRandomHint(string catName)
     {
         int type = Random.Range(0,5);
         if(type == 0)
         {
             Hint newHint = hintGenerator.OneToOneHintGenerator(solutionList);
             string convertedHint = newHint.ConvertToDialogue();
-            bool flag = ValidateHint(convertedHint);
+            bool flag = ValidateGeneratedHint(convertedHint, newHint, catName);
             while(!flag)
             {
                 newHint = hintGenerator.OneToOneHintGenerator(solutionList);
                 convertedHint = newHint.ConvertToDialogue();
-                flag = ValidateHint(convertedHint);
+                flag = ValidateGeneratedHint(convertedHint, newHint, catName);
             }
             convertedHintList.Add(convertedHint);
         }
@@ -82,12 +82,12 @@ public class SolutionAndHintData : MonoBehaviour
         {
             Hint newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
             string convertedHint = newHint.ConvertToDialogue();
-            bool flag = ValidateHint(convertedHint);
+            bool flag = ValidateGeneratedHint(convertedHint, newHint, catName);
             while(!flag)
             {
                 newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
                 convertedHint = newHint.ConvertToDialogue();
-                flag = ValidateHint(convertedHint);
+                flag = ValidateGeneratedHint(convertedHint, newHint, catName);
             }
             convertedHintList.Add(convertedHint);
         }
@@ -95,15 +95,43 @@ public class SolutionAndHintData : MonoBehaviour
         displayHints.GetComponent<DisplayHints>().UpdateHints();
     }
 
-    public bool ValidateHint(string hint)
+    public bool ValidateGeneratedHint(string convertedHint, Hint hint, string catName)
     {
-        if(!convertedHintList.Contains(hint))
+        if(convertedHintList.Contains(convertedHint))
         {
-            return true;
+            return false;
+        }
+
+        if(hint.categoryOne == 0)
+        {
+            foreach(var cat in hint.firstAgentList)
+            {
+                if(cat == catName)
+                {
+                    return false;
+                }
+            }
+        }
+        else if(hint.categoryTwo == 0)
+        {
+            if(hint.secondAgent == catName)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public bool ValidateHint(string convertedHint)
+    {
+        if(convertedHintList.Contains(convertedHint))
+        {
+            return false;
         }
         else
         {
-            return false;
+            return true;
         }
     }
 }
