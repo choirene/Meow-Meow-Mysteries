@@ -8,7 +8,6 @@ public class SelectSuspect : MonoBehaviour
 {
     [SerializeField] TMP_Text textComponent;
     string defaultText = "Click on a suspect to learn more about their wickedness.";
-    [TextArea(10,14)] public List<string> suspectText;
     bool activeSelection;
     int currentCat;
     Animator currentAnimator;
@@ -16,6 +15,7 @@ public class SelectSuspect : MonoBehaviour
     private void Start() {
         activeSelection = false;
         currentCat = -1;
+        textComponent.text = defaultText;
     }
 
     public void PickSuspect(SuspectButton suspect)
