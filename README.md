@@ -12,5 +12,6 @@ https://cupnooble.itch.io/sprout-lands-ui-pack
 
 https://datagoblin.itch.io/monogram
 
+https://richarrest.itch.io/classic-jrpg-music-pack-medium-pack
 
 (i'll format this later)
