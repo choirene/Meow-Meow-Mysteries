@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SubmitSolution.unity
     guid: b5b8664ac34c644adb59111903704c29
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: b74b45c50b18f43d3a680a7d44e4d173
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 4730991a759ee49bb92135cd27436cfd
   m_configObjects: {}

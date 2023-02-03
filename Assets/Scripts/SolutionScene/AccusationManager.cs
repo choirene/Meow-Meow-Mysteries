@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AccusationManager : MonoBehaviour
 {
@@ -37,13 +38,11 @@ public class AccusationManager : MonoBehaviour
 
         if(solutionString == accusationString)
         {
-            Debug.Log("you win!");
-            // win scene
+            SceneManager.LoadScene("WinScene", LoadSceneMode.Single);        
         }
         else
         {
-            Debug.Log("You lose!");
-            // lose scene
+            SceneManager.LoadScene("LoseScene", LoadSceneMode.Single);        
         }
 
     }
