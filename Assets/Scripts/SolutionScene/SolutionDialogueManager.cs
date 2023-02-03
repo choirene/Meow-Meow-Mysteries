@@ -10,7 +10,6 @@ public class SolutionDialogueManager : MonoBehaviour
     public TMP_Text catDialogue;
     public TMP_Text accuseHeader;
     public GameObject characterSprite;
-    // public List<GameObject> characterSprites;
     public SolutionNPC currentNPC;
     public bool accused;
     public ClickSubmit submitButton;

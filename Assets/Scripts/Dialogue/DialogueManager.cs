@@ -5,16 +5,18 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public bool playerInRange;
+    public bool dialogueStarted;
     public GameObject menu;
     public GameObject dialoguePanel;
     public GameObject dialogueOptions;
-    public List<GameObject> characterSprites;
-    public int currentCharacter;
+    public GameObject characterSprite; 
+    public ClickDialogueOption choiceButtons;
+    // public List<GameObject> characterSprites;
+    // public int currentCharacter;
     public TMP_Text textComponent;
 
     public Dialogue dialogue;
-    public bool playerInRange;
-    public bool dialogueStarted;
     State currentState;
 
     enum State 
@@ -60,8 +62,8 @@ public class DialogueManager : MonoBehaviour
 
         menu.SetActive(false);
 
-        currentCharacter = dialogue.id;
-        characterSprites[currentCharacter].SetActive(true);
+        characterSprite.SetActive(true);
+        choiceButtons.catId = dialogue.id;
 
         currentState = State.greeting;
 
@@ -145,10 +147,10 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         dialoguePanel.SetActive(false);
-        characterSprites[currentCharacter].SetActive(false);
+        characterSprite.SetActive(false);
         dialogueStarted = false;
         menu.SetActive(true);
-
+        choiceButtons.catId = -1;
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
