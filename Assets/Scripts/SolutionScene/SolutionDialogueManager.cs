@@ -9,23 +9,22 @@ public class SolutionDialogueManager : MonoBehaviour
     public GameObject accusePanel;
     public TMP_Text catDialogue;
     public TMP_Text accuseHeader;
-    public List<GameObject> characterSprites;
-    public int currentId;
+    public GameObject characterSprite;
+    // public List<GameObject> characterSprites;
     public SolutionNPC currentNPC;
+    public bool accused;
+    public ClickSubmit submitButton;
+    
 
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+        accused = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.X) && playerInRange)
+        if(Input.GetKeyDown(KeyCode.X) && playerInRange && !accused)
         {
             StartDialogue();
         }
@@ -36,9 +35,8 @@ public class SolutionDialogueManager : MonoBehaviour
         {
             accusePanel.SetActive(true);
         }
-
-        currentId = currentNPC.id;
-        characterSprites[currentId].SetActive(true);
+        submitButton.catId = currentNPC.id;
+        characterSprite.SetActive(true);
         catDialogue.text = currentNPC.dialogue;
         accuseHeader.text = currentNPC.name + " was...";
 
@@ -47,9 +45,8 @@ public class SolutionDialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         accusePanel.SetActive(false);
-        characterSprites[currentId].SetActive(false);
+        characterSprite.SetActive(false);
     }
-
 
     private void OnTriggerEnter2D(Collider2D other) 
     {

@@ -15,21 +15,6 @@ public class SolutionAndHintData : MonoBehaviour
 
     void Awake() 
     {
-        solutionList = solution.generateSolution();
-        int i = 0;
-        foreach(var solution in solutionList)
-        {
-            if(solution[1] == "naughty")
-            {
-                naughtyCatId = i;
-                naughtyList = solution;
-                break;
-            }
-            i++;
-        }
-    }
-    void Start()
-    {
         if(instance != null)
         {
             Destroy(this.gameObject);
@@ -37,8 +22,27 @@ public class SolutionAndHintData : MonoBehaviour
         }
         instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
-        // need to figure out if this conflicts with awake....
 
+        solutionList = solution.generateSolution();
+        int i = 0;
+        foreach(var solution in solutionList)
+        {
+            foreach(var thing in solution)
+            {
+                Debug.Log(thing);
+            }
+
+            if(solution[1] == "naughty")
+            {
+                naughtyCatId = i;
+                naughtyList = solution;
+                // break;
+            }
+            i++;
+        }
+    }
+    void Start()
+    {
         InitialHintGeneration();
     }
 
