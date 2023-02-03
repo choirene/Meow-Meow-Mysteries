@@ -21,6 +21,10 @@ public class StartMenu : MonoBehaviour
     {
         optionsMenu.SetActive(true);
     }
+    public void CloseOptionsMenu()
+    {
+        optionsMenu.SetActive(false);
+    }
     public void ClickQuitGame()
     {
         Application.Quit();
