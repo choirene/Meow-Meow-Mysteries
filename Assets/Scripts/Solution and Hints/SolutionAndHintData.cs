@@ -27,16 +27,11 @@ public class SolutionAndHintData : MonoBehaviour
         int i = 0;
         foreach(var solution in solutionList)
         {
-            foreach(var thing in solution)
-            {
-                Debug.Log(thing);
-            }
-
             if(solution[1] == "naughty")
             {
                 naughtyCatId = i;
                 naughtyList = solution;
-                // break;
+                break;
             }
             i++;
         }

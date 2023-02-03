@@ -6,18 +6,13 @@ public class AccusationManager : MonoBehaviour
 {
     List<List<string>> solutionList;
     public int accusationsMade;
-    public bool correctSolution;
+    string solutionString;
 
     void Start()
     {
         solutionList = SolutionAndHintData.GetInstance().solutionList;
         accusationsMade = 0;
-        correctSolution = true;
-    }
-
-    public void FinalAccusation(List<List<string>> accusationList)
-    {
-        string solutionString = "";
+        solutionString = "";
         foreach(var solution in solutionList)
         {
             foreach(var thing in solution)
@@ -25,6 +20,11 @@ public class AccusationManager : MonoBehaviour
                 solutionString = solutionString + thing;
             }
         }
+        Debug.Log(solutionString);
+    }
+
+    public void FinalAccusation(List<List<string>> accusationList)
+    {
         string accusationString = "";
         foreach(var accusation in accusationList)
         {
@@ -33,22 +33,7 @@ public class AccusationManager : MonoBehaviour
                 accusationString = accusationString + thing;
             }
         }
-        Debug.Log(solutionString);
         Debug.Log(accusationString);
-
-
-
-        // for(int i = 0; i < 5; i++)
-        // {
-        //     for(int j = 0; i < 3; i++)
-        //     {
-        //         if(solutionList[i][j] != accusationList[i][j])
-        //         {
-        //             correctSolution = false;
-        //         }
-
-        //     }
-        // }
 
         if(solutionString == accusationString)
         {
