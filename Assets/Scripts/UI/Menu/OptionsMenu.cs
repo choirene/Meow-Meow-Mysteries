@@ -9,7 +9,14 @@ public class OptionsMenu : MonoBehaviour
     public GameObject creditsPanel;
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        if(volume == -60.0)
+        {
+            audioMixer.SetFloat("volume", -80);
+        }
+        else
+        {
+            audioMixer.SetFloat("volume", volume);
+        }
     }
 
     public void SetFullscreen(bool isFullscreen)
