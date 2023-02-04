@@ -6022,7 +6022,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 6237217cfd01d46fd9dd8b9a5b64b641, type: 2}
-  m_audioClip: {fileID: 8300000, guid: bffb4dec34dcf44d88304ce780e08915, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e8ef89a443cf947218963d0be18d8132, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -57252,9 +57252,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Instructions:
-
-    Play as a cat and solve mysteries and all that'
+  m_text: "Instructions:\nUse the WASD or arrow keys to move. Use X to talk to cats.\nCollect
+    clues from cats.\nUse the Clues Panel on the left and the Grid Panel on the right
+    to solve the puzzle. \nCats cannot overlap in what activity they are doing or
+    what location they are at.\nDiscover who the naughty cat is! When ready, go to
+    the solution room and submit the alibi or crime of each cat."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
   m_sharedMaterial: {fileID: -5528725944617821040, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
@@ -64110,6 +64112,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1155083538}
     m_Modifications:
+    - target: {fileID: 3618971636073381102, guid: e8435b5c72e2e47d985592603427db4a, type: 3}
+      propertyPath: m_text
+      value: "This game was created with \nthe following itch.io assets\n- Nekonin
+        RPG Characters by Pipoya\n- Top Down Retro House by Penzilla\n- Interior
+        Tileset for Top-Down by Raou\n- Sprout Lands UI Pack by Cupnooble\n- Monogram
+        by Datagoblin\n- Ancient Dragon - Classic JRPG Music Pack by Richarrest (Ricardo
+        Cuello)\n- Three Red Hearts by Tallbeard/Abstraction"
+      objectReference: {fileID: 0}
     - target: {fileID: 3618971636300494366, guid: e8435b5c72e2e47d985592603427db4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
