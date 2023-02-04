@@ -9,6 +9,7 @@ public class SolutionAndHintData : MonoBehaviour
     public List<string> convertedHintList = new List<string>();
     public List<List<string>> solutionList = new List<List<string>>();
     public GameObject displayHints;
+    public bool atCapacity;
     public int naughtyCatId;
     List<string> naughtyList = new List<string>();
     public static SolutionAndHintData instance;
@@ -72,6 +73,10 @@ public class SolutionAndHintData : MonoBehaviour
     public void GenerateRandomHint(string catName)
     {
         int type = Random.Range(0,5);
+        if(convertedHintList.Count > 10)
+        {
+            type = 0;
+        }
         if(type == 0)
         {
             Hint newHint = hintGenerator.OneToOneHintGenerator(solutionList);
@@ -98,7 +103,10 @@ public class SolutionAndHintData : MonoBehaviour
             }
             convertedHintList.Add(convertedHint);
         }
-
+        if(convertedHintList.Count == 25)
+        {
+            atCapacity = true;
+        }
         displayHints.GetComponent<DisplayHints>().UpdateHints();
     }
 

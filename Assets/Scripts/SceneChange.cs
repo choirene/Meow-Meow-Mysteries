@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    public int exit;
     public GameObject exitInstructions;
+    public GameObject solutionInstructions;
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.CompareTag("Player"))
@@ -20,16 +20,23 @@ public class SceneChange : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             exitInstructions.SetActive(false);
+            solutionInstructions.SetActive(false);
         }
     }
 
     public void OnClickContinue()
     {
-        SceneManager.LoadScene(exit, LoadSceneMode.Single);
+        solutionInstructions.SetActive(true);
     }
 
     public void OnClickGoBack()
     {
         exitInstructions.SetActive(false);
+        solutionInstructions.SetActive(false);
+    }
+
+    public void OnClickReady()
+    {
+        SceneManager.LoadScene("SubmitSolution", LoadSceneMode.Single);
     }
 }

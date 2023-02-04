@@ -12,10 +12,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueOptions;
     public GameObject characterSprite; 
     public ClickDialogueOption choiceButtons;
-    // public List<GameObject> characterSprites;
-    // public int currentCharacter;
     public TMP_Text textComponent;
-
+    bool atCapacity;
     public Dialogue dialogue;
     State currentState;
 
@@ -29,12 +27,14 @@ public class DialogueManager : MonoBehaviour
         translate,
         showClue,
         afterClue,
+        noMoreClues,
         goodbye,
         end
     }
 
     void Start()
     {
+        atCapacity = false;
     }
 
     void Update()
@@ -77,7 +77,14 @@ public class DialogueManager : MonoBehaviour
             case State.greeting:
                 int greetingIndex = Random.Range(0, dialogue.greetings.Length);
                 textComponent.text = dialogue.greetings[greetingIndex];
-                currentState = State.askForAction;
+                if(atCapacity)
+                {
+                    currentState = State.noMoreClues;
+                }
+                else
+                {
+                    currentState = State.askForAction;
+                }
                 break;
             case State.askForAction:
                 textComponent.text = dialogue.askForAction;
@@ -105,6 +112,10 @@ public class DialogueManager : MonoBehaviour
                 ShowClue();
                 currentState = State.afterClue;
                 break;
+            case State.noMoreClues:
+                textComponent.text = dialogue.noMoreClues;
+                currentState = State.goodbye;
+                break;
             case State.afterClue:
                 textComponent.text = dialogue.afterClue;
                 currentState = State.end;
@@ -116,10 +127,6 @@ public class DialogueManager : MonoBehaviour
             case State.end:
                 EndDialogue();
                 break;
-            default:
-                Debug.Log("ioasjdf");
-                break;
-
         }
     }
     public void ClickBeg()
@@ -142,6 +149,10 @@ public class DialogueManager : MonoBehaviour
         solutionData.GenerateRandomHint(dialogue.name);
         string lastHint = solutionData.convertedHintList[^1];
         textComponent.text = lastHint;
+        if(solutionData.atCapacity)
+        {
+            atCapacity = true;
+        }
     }
 
     public void EndDialogue()
