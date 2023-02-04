@@ -11,6 +11,7 @@ public class DontDestroy : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "WinScene" || SceneManager.GetActiveScene().name == "LoseScene")
         {
             Destroy(GameObject.Find("MenuCanvas"));
+            Destroy(GameObject.Find("SolutionAndHintData"));
         }
     }
     void Start()
