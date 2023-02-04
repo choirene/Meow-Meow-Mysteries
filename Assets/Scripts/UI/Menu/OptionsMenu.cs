@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public GameObject creditsPanel;
+    public Slider volumeSlider;
+    private void Start() 
+    {
+        audioMixer.GetFloat("volume", out float currentVolume);
+        volumeSlider.value = currentVolume;
+    }
     public void SetVolume(float volume)
     {
-        if(volume == -60.0)
+        if(volume == -50)
         {
             audioMixer.SetFloat("volume", -80);
         }
