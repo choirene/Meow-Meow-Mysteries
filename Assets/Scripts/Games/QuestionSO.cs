@@ -23,16 +23,4 @@ public class QuestionSO : ScriptableObject
     {
         return answers[index];
     }
-
-    public bool CheckAnswer(int answer)
-    {
-        if(answer == correctAnswer)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

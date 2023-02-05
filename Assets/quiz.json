@@ -13,12 +13,19 @@
         "Chestnut-backed owlet" : false,
         "Elf owl": false
     },
+    "Which of the following is NOT a real variation of the colorpoint fur pattern in cats?" : 
+    {
+        "Seal point": false,
+        "Blue point": false,
+        "Milk point": true,
+        "Flame point": false
+    }, 
     "Which song was included on the album 'Dedicated' by Carly Rae Jepsen?" :
     {
         "Now I Don't Hate California After All": false,
         "Call Me Maybe": false,
         "When I Needed You": false,
-        "Too Much": true
+        "Happy Not Knowing": true
     },
     "Which group was the singer Sohee a member of?" :
     {
@@ -30,8 +37,8 @@
     "Which song was included on the album 'Riot!' by Paramore?" :
     {
         "All I Wanted": false,
-        "That's What You Get": true,
-        "Emergency": false,
+        "crushcrushcrush": true,
+        "The Only Exception": false,
         "Ain't It Fun": false
     },
     "Which species does the scientific name 'Glaucidium castanotum' refer to?" :
@@ -68,5 +75,12 @@
         "Serrated casquehead iguana": false,
         "Guatemalan helmeted basilisk" : true,
         "Helmeted iguana": false
+    },
+    "What sport did the rapper Ice Spice play in college?" :
+    {
+        "Soccer": false,
+        "Softball": false,
+        "Gymnastics": false,
+        "Volleyball": true
     }
 }
