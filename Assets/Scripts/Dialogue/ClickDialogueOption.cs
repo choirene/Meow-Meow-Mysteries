@@ -12,6 +12,11 @@ public class ClickDialogueOption : MonoBehaviour
         catList[catId].ClickBeg();
     }
 
+    public void OnClickPlay()
+    {
+        catList[catId].ClickPlay();
+    }
+
     public void OnClickQuit()
     {
         catList[catId].ClickQuit();

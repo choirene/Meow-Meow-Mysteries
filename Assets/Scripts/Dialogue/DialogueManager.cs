@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text textComponent;
     bool atCapacity;
     public Dialogue dialogue;
+    [SerializeField] MinigameManager minigameManager;
+    bool inGame;
     State currentState;
 
     enum State 
@@ -23,8 +25,9 @@ public class DialogueManager : MonoBehaviour
         askForAction,
         beg,
         playGame,
+        winGame,
+        loseGame,
         bribe,
-        translate,
         showClue,
         afterClue,
         noMoreClues,
@@ -39,7 +42,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.X) && playerInRange)
+        if(Input.GetKeyDown(KeyCode.X) && playerInRange && !inGame)
         {
             if(dialogueStarted)
             {
@@ -103,10 +106,20 @@ public class DialogueManager : MonoBehaviour
                 }
                 break;
             case State.playGame:
+                inGame = true;
+                minigameManager.StartGame(dialogue.id);
+                break;
+            case State.winGame:
+                inGame = false;
+                textComponent.text = dialogue.winGame;
+                currentState = State.showClue;
+                break;
+            case State.loseGame:
+                inGame = false;
+                textComponent.text = dialogue.loseGame;
+                currentState = State.goodbye;
                 break;
             case State.bribe:
-                break;
-            case State.translate:
                 break;
             case State.showClue:
                 ShowClue();
@@ -133,6 +146,25 @@ public class DialogueManager : MonoBehaviour
     {
         currentState = State.beg;
         dialogueOptions.SetActive(false);
+        DisplayNextSentence();
+    }
+
+    public void ClickPlay()
+    {
+        currentState = State.playGame;
+        dialogueOptions.SetActive(false);
+        DisplayNextSentence();
+    }
+
+    public void WinGame()
+    {
+        currentState = State.winGame;
+        DisplayNextSentence();
+    }
+
+    public void LoseGame()
+    {
+        currentState = State.loseGame;
         DisplayNextSentence();
     }
 

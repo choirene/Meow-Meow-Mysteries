@@ -5,6 +5,7 @@ using TMPro;
 
 public class Quiz : MonoBehaviour
 {
+    [SerializeField] MinigameManager minigameManager;
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] QuestionSO[] questionBank;
     [SerializeField] GameObject[] answerButtons;
@@ -13,8 +14,9 @@ public class Quiz : MonoBehaviour
     int currentQuestionIndex;
 
 
-    void Start()
+    public void StartGame()
     {
+        questionList.Clear();
         List<int> indicesUsed = new List<int>();
         while(questionList.Count < 3)
         {
@@ -68,11 +70,13 @@ public class Quiz : MonoBehaviour
 
     public void LoseGame()
     {
+        minigameManager.CloseGame(false);
         Debug.Log("You Lose!");
     }
 
     public void WinGame()
     {
+        minigameManager.CloseGame(true);
         Debug.Log("You Win!");
     }
 
