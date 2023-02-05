@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d97c7dcbd5a47fa8181c93b5caebfa, type: 3}
+  m_Name: Clubs Ace
+  m_EditorClassIdentifier: 
+  title: Ace of Clubs
+  suit: Clubs
+  blackjackValue: 11
+  holValue: 14
+  isAce: 1
+  cardSprite: {fileID: -824805041, guid: 9ab5200cccf27404ea084151ad5b6a9e, type: 3}
