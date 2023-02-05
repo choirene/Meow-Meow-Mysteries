@@ -10,12 +10,6 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject dialoguePanel;
     int currentId;
 
-    // hold the movement script/player game object
-    // references to each mini game object & script
-    // ability to call each mini game and close each minigame
-    // have a bool true or false if the player is in a game... so i can turn on/off the movement and dialogue manager
-    // on win, send back to the dialogue manager that the player earned a clue
-
     public void StartGame(int catId)
     {
         dialoguePanel.SetActive(false);
@@ -30,6 +24,11 @@ public class MinigameManager : MonoBehaviour
                 break;
             case 2:
                 games[catId].GetComponent<Quiz>().StartGame();
+                break;
+            case 3:
+                break;
+            case 4:
+                games[catId].GetComponent<HigherOrLower>().StartGame();
                 break;
         }
     }

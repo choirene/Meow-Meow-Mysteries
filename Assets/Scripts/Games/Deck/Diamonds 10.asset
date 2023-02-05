@@ -15,6 +15,6 @@ MonoBehaviour:
   title: Ten of Diamonds
   suit: Diamonds
   blackjackValue: 10
-  holValue: 20
+  holValue: 10
   isAce: 0
   cardSprite: {fileID: 370114944, guid: 9ab5200cccf27404ea084151ad5b6a9e, type: 3}
