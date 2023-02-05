@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject menu;
     public GameObject dialoguePanel;
     public GameObject dialogueOptions;
+    [SerializeField] GameObject gameOptions;
     public GameObject characterSprite; 
     public ClickDialogueOption choiceButtons;
     public TMP_Text textComponent;
@@ -25,6 +26,7 @@ public class DialogueManager : MonoBehaviour
         askForAction,
         beg,
         playGame,
+        startGame,
         winGame,
         loseGame,
         bribe,
@@ -106,6 +108,10 @@ public class DialogueManager : MonoBehaviour
                 }
                 break;
             case State.playGame:
+                textComponent.text = dialogue.playGame;
+                gameOptions.SetActive(true);
+                break;
+            case State.startGame:
                 inGame = true;
                 minigameManager.StartGame(dialogue.id);
                 break;
@@ -117,7 +123,7 @@ public class DialogueManager : MonoBehaviour
             case State.loseGame:
                 inGame = false;
                 textComponent.text = dialogue.loseGame;
-                currentState = State.goodbye;
+                currentState = State.askForAction;
                 break;
             case State.bribe:
                 break;
@@ -156,6 +162,19 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+    public void ClickStart()
+    {
+        currentState = State.startGame;
+        gameOptions.SetActive(false);
+        DisplayNextSentence();
+    }
+
+    public void QuitGame()
+    {
+        currentState = State.askForAction;
+        gameOptions.SetActive(false);
+        DisplayNextSentence();
+    }
     public void WinGame()
     {
         currentState = State.winGame;

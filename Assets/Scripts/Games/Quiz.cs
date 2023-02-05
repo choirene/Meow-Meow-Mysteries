@@ -33,15 +33,9 @@ public class Quiz : MonoBehaviour
 
     public void SelectAnswer(int index)
     {
-        // these do not show up bc it immediately calls next question.....
-        if(index == correctAnswerIndex)
+        if(index != correctAnswerIndex)
         {
-            questionText.text = "How? ...Yes that's correct.";
-        }
-        else
-        {
-            questionText.text = "HA HA STINKER. The correct answer was " + questionList[currentQuestionIndex].GetAnswer(correctAnswerIndex);
-            LoseGame();
+            minigameManager.CloseGame(false);
             return;
         }
 
@@ -49,7 +43,7 @@ public class Quiz : MonoBehaviour
 
         if(currentQuestionIndex == questionList.Count)
         {
-            WinGame();
+            minigameManager.CloseGame(true);
         }
         else
         {
@@ -66,18 +60,6 @@ public class Quiz : MonoBehaviour
             TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
             buttonText.text = questionList[currentQuestionIndex].GetAnswer(i);
         }
-    }
-
-    public void LoseGame()
-    {
-        minigameManager.CloseGame(false);
-        Debug.Log("You Lose!");
-    }
-
-    public void WinGame()
-    {
-        minigameManager.CloseGame(true);
-        Debug.Log("You Win!");
     }
 
 }

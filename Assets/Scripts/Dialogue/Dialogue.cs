@@ -10,7 +10,7 @@ using UnityEngine;
     [TextArea(3, 5)] [SerializeField] public string[] greetings;
     [TextArea(3,5)] [SerializeField] public string askForAction;
     [TextArea(3, 5)] [SerializeField] public string[] beg;
-    [TextArea(3, 5)] [SerializeField] public string[] playGame;
+    [TextArea(3, 5)] [SerializeField] public string playGame;
     [TextArea(3, 5)] [SerializeField] public string winGame;
     [TextArea(3, 5)] [SerializeField] public string loseGame;
     [TextArea(3, 5)] [SerializeField] public string[] bribe;
