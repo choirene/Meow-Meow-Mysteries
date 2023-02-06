@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Blackjack : MonoBehaviour
@@ -10,14 +11,15 @@ public class Blackjack : MonoBehaviour
     [SerializeField] GameObject[] playerCards;
     [SerializeField] GameObject[] dealerCards;
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text dealerText;
     [SerializeField] GameObject buttonsPanel;
     [SerializeField] GameObject nextButton;
     [SerializeField] GameObject quitButton;
     [SerializeField] GameObject continueButton;
+    int playerHandSize;
+    int dealerHandSize;
     int playerScore;
     int dealerScore;
-    List<PlayingCard> playerHand = new List<PlayingCard>();
-    List<PlayingCard> dealerHand = new List<PlayingCard>();
     List<PlayingCard> playerBank = new List<PlayingCard>();
     List<PlayingCard> dealerBank = new List<PlayingCard>();
 
@@ -27,6 +29,7 @@ public class Blackjack : MonoBehaviour
         quitButton.SetActive(false);
         nextButton.SetActive(false);
         continueButton.SetActive(false);
+        dealerText.text = "";
 
         for(int i = 2; i<5; i++)
         {
@@ -55,8 +58,89 @@ public class Blackjack : MonoBehaviour
                 dealerBank.Add(deck[randomIndex]);
             }
         }
+
+        for(int i = 0; i < 2; i++)
+        {
+            dealerCards[i].GetComponent<Image>().sprite = facedownSprite;
+            playerCards[i].GetComponent<Image>().sprite = playerBank[i].cardSprite;
+        }
+        
+        playerHandSize = 2;
+        playerScore = CalculateScore(playerBank.GetRange(0,playerHandSize));
+        scoreText.text = "Current Score: " + playerScore;
     }
 
+    public void ClickHit()
+    {
+        playerCards[playerHandSize].SetActive(true);
+        playerCards[playerHandSize].GetComponent<Image>().sprite = playerBank[playerHandSize].cardSprite;
+        playerHandSize ++;
+        playerScore = CalculateScore(playerBank.GetRange(0,playerHandSize));
+        scoreText.text = "Current Score: " + playerScore;
+        if(playerScore > 21)
+        {
+            LoseGame();
+            return;
+        }
+
+        if(playerHandSize == 5)
+        {
+            ClickStand();
+        }
+    }
+
+    public void ClickStand()
+    {
+        buttonsPanel.SetActive(false);
+        dealerText.text = "Dealer's turn";
+        nextButton.SetActive(true);
+        dealerCards[0].GetComponent<Image>().sprite = dealerBank[0].cardSprite;
+        dealerCards[1].GetComponent<Image>().sprite = dealerBank[1].cardSprite;
+        dealerHandSize = 2;
+        dealerScore = CalculateScore(dealerBank.GetRange(0, dealerHandSize));
+    }
+
+    public void DealersTurn()
+    {
+        while((dealerScore < 17) && (dealerHandSize != 5))
+        {
+            dealerCards[dealerHandSize].SetActive(true);
+            dealerCards[dealerHandSize].GetComponent<Image>().sprite = dealerBank[dealerHandSize].cardSprite;
+            dealerHandSize ++;
+            dealerScore = CalculateScore(dealerBank.GetRange(0, dealerHandSize));
+                if(dealerScore > 21)
+                {
+                    nextButton.SetActive(false);
+                    WinGame();
+                    return;
+                }
+        }
+
+        nextButton.SetActive(false);
+
+        if(playerScore >= dealerScore)
+        {
+            WinGame();
+        }
+        else
+        {
+            LoseGame();
+        }
+    }
+
+    void LoseGame()
+    {
+        buttonsPanel.SetActive(false);
+        dealerText.text = "You lose...";
+        quitButton.SetActive(true);
+    }
+
+    void WinGame()
+    {
+        buttonsPanel.SetActive(false);
+        dealerText.text = "You win!";
+        continueButton.SetActive(true);
+    }
     int CalculateScore(List<PlayingCard> hand)
     {
         int score = 0;
@@ -91,18 +175,6 @@ public class Blackjack : MonoBehaviour
                 }
             }
         }
-
         return score;
     }
-
-    void ClickHit()
-    {
-
-    }
-
-    void ClickStand()
-    {
-
-    }
-
 }
