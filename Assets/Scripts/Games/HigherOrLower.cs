@@ -6,7 +6,6 @@ using TMPro;
 
 public class HigherOrLower : MonoBehaviour
 {
-    [SerializeField] MinigameManager minigameManager;
     [SerializeField] PlayingCard[] deck;
     [SerializeField] Sprite facedownCard;
     [SerializeField] Image playerCardSprite;
@@ -87,8 +86,6 @@ public class HigherOrLower : MonoBehaviour
     {
         nextCardSprite.sprite = cardList[nextCard].cardSprite;
         buttonsPanel.SetActive(false);
-        // Debug.Log(cardList.Count);
-        // Debug.Log(nextCard);
 
         if(nextCard == 5)
         {
@@ -109,5 +106,4 @@ public class HigherOrLower : MonoBehaviour
         nextCardSprite.sprite = cardList[nextCard].cardSprite;
         text.text = "Too bad.";
     }
-
 }

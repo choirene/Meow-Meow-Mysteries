@@ -26,6 +26,7 @@ public class MinigameManager : MonoBehaviour
                 games[catId].GetComponent<Quiz>().StartGame();
                 break;
             case 3:
+                games[catId].GetComponent<Blackjack>().StartGame();
                 break;
             case 4:
                 games[catId].GetComponent<HigherOrLower>().StartGame();
