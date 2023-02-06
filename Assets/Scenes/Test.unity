@@ -6826,8 +6826,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Try to guess if the \nfacedown card is higher or lower than the current
-    card. \nThe ranking for the face cards is:\nAce > King > Queen > Jack\nGet three
-    in a row to win a clue!"
+    card. \nThe ranking for the face cards is:\nAce > King > Queen > Jack\nWin three
+    in a row to earn a clue!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
   m_sharedMaterial: {fileID: -5528725944617821040, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
@@ -64273,9 +64273,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "The goal of the game is to \nget as close to 21 points without going over.\nFace
-    cards (King, Queen, Jack) are worth 10 points. Aces are worth 1 or 11 points,
-    depending on which one gets the player closer.\nHIT to have another card dealt.
-    STAND to stick with your current hand."
+    cards are worth 10 points. Aces are worth 1 or 11 points, depending on which
+    one gets the player closer.\nHIT to have another card dealt. STAND to stick with
+    your current hand. In case of a tie, the dealer wins."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
   m_sharedMaterial: {fileID: -5528725944617821040, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}

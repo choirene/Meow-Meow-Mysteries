@@ -64,10 +64,15 @@ public class Blackjack : MonoBehaviour
             dealerCards[i].GetComponent<Image>().sprite = facedownSprite;
             playerCards[i].GetComponent<Image>().sprite = playerBank[i].cardSprite;
         }
+        dealerCards[0].GetComponent<Image>().sprite = dealerBank[0].cardSprite;
         
         playerHandSize = 2;
         playerScore = CalculateScore(playerBank.GetRange(0,playerHandSize));
         scoreText.text = "Current Score: " + playerScore;
+        if(playerScore == 21)
+        {
+            WinGame();
+        }
     }
 
     public void ClickHit()
@@ -94,10 +99,10 @@ public class Blackjack : MonoBehaviour
         buttonsPanel.SetActive(false);
         dealerText.text = "Dealer's turn";
         nextButton.SetActive(true);
-        dealerCards[0].GetComponent<Image>().sprite = dealerBank[0].cardSprite;
         dealerCards[1].GetComponent<Image>().sprite = dealerBank[1].cardSprite;
         dealerHandSize = 2;
         dealerScore = CalculateScore(dealerBank.GetRange(0, dealerHandSize));
+        scoreText.text = "Dealer Score: " + dealerScore + "\n Current Score: " + playerScore;
     }
 
     public void DealersTurn()
@@ -108,6 +113,7 @@ public class Blackjack : MonoBehaviour
             dealerCards[dealerHandSize].GetComponent<Image>().sprite = dealerBank[dealerHandSize].cardSprite;
             dealerHandSize ++;
             dealerScore = CalculateScore(dealerBank.GetRange(0, dealerHandSize));
+            scoreText.text = "Dealer Score: " + dealerScore + "\n Current Score: " + playerScore;
                 if(dealerScore > 21)
                 {
                     nextButton.SetActive(false);
@@ -118,11 +124,11 @@ public class Blackjack : MonoBehaviour
 
         nextButton.SetActive(false);
 
-        if(playerScore >= dealerScore)
+        if(playerScore > dealerScore)
         {
             WinGame();
         }
-        else
+        else 
         {
             LoseGame();
         }
