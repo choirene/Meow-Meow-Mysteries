@@ -13,6 +13,7 @@ public class Blackjack : MonoBehaviour
     [SerializeField] TMP_Text scoreText;
     [SerializeField] TMP_Text dealerText;
     [SerializeField] GameObject buttonsPanel;
+    [SerializeField] GameObject endPanel;
     [SerializeField] GameObject nextButton;
     [SerializeField] GameObject quitButton;
     [SerializeField] GameObject continueButton;
@@ -26,6 +27,7 @@ public class Blackjack : MonoBehaviour
     public void StartGame()
     {
         buttonsPanel.SetActive(true);
+        endPanel.SetActive(false);
         quitButton.SetActive(false);
         nextButton.SetActive(false);
         continueButton.SetActive(false);
@@ -137,6 +139,7 @@ public class Blackjack : MonoBehaviour
     void LoseGame()
     {
         buttonsPanel.SetActive(false);
+        endPanel.SetActive(true);
         dealerText.text = "You lose...";
         quitButton.SetActive(true);
     }

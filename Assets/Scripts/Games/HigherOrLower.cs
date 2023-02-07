@@ -12,6 +12,7 @@ public class HigherOrLower : MonoBehaviour
     [SerializeField] Image nextCardSprite;
     [SerializeField] TMP_Text text;
     [SerializeField] GameObject buttonsPanel;
+    [SerializeField] GameObject endPanel;
     [SerializeField] GameObject nextButton;
     [SerializeField] GameObject quitButton;
     [SerializeField] GameObject continueButton;
@@ -23,6 +24,7 @@ public class HigherOrLower : MonoBehaviour
     public void StartGame()
     {
         buttonsPanel.SetActive(true);
+        endPanel.SetActive(false);
         quitButton.SetActive(false);
         nextButton.SetActive(false);
         continueButton.SetActive(false);
@@ -102,6 +104,7 @@ public class HigherOrLower : MonoBehaviour
     void LoseRound()
     {
         buttonsPanel.SetActive(false);
+        endPanel.SetActive(true);
         quitButton.SetActive(true);
         nextCardSprite.sprite = cardList[nextCard].cardSprite;
         text.text = "Too bad.";
