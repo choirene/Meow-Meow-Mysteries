@@ -21,6 +21,7 @@ public class MinigameManager : MonoBehaviour
             case 0:
                 break;
             case 1:
+                games[catId].GetComponent<KaraokeClicker>().StartGame();
                 break;
             case 2:
                 games[catId].GetComponent<Quiz>().StartGame();
