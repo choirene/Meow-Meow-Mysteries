@@ -19,6 +19,7 @@ public class MinigameManager : MonoBehaviour
         switch(catId)
         {
             case 0:
+                games[catId].GetComponent<MontyHall>().StartGame();
                 break;
             case 1:
                 games[catId].GetComponent<KaraokeClicker>().StartGame();
