@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class KeyPanel : MonoBehaviour
 {
@@ -9,18 +10,18 @@ public class KeyPanel : MonoBehaviour
     public List<GameObject> keys;
     int currentKey;
     bool activeSelection;
+    bool keyPanelActive;
+    [SerializeField] private Canvas canvas;
 
     private void Start() 
     {
         currentKey = -1;
+        keyPanelActive = false;
     }
-    public void OpenKey()
+    public void ToggleKey()
     {
-        keyPanel.SetActive(true);
-    }
-    public void CloseKey()
-    {
-        keyPanel.SetActive(false);
+        keyPanelActive = !keyPanelActive;
+        keyPanel.SetActive(keyPanelActive);
     }
 
     public void ClickCategoryKey(int newKey)
@@ -45,4 +46,17 @@ public class KeyPanel : MonoBehaviour
         }
     }
 
+    public void DragHandler(BaseEventData data)
+    {
+        PointerEventData pointerData = (PointerEventData)data;
+
+        Vector2 position;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            (RectTransform)canvas.transform,
+            pointerData.position,
+            canvas.worldCamera,
+            out position);
+
+        transform.position = canvas.transform.TransformPoint(position);
+    }
 }
