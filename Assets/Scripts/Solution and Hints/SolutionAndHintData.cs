@@ -7,13 +7,12 @@ public class SolutionAndHintData : MonoBehaviour
     SolutionGenerator solution = new SolutionGenerator();
     HintGenerator hintGenerator = new HintGenerator();
     public List<string> convertedHintList = new List<string>();
+    private HashSet<string> hiddenHintSet = new HashSet<string>();
     public List<List<string>> solutionList = new List<List<string>>();
     public GameObject displayHints;
     public bool atCapacity;
-    public int naughtyCatId;
-    List<string> naughtyList = new List<string>();
     public static SolutionAndHintData instance;
-
+    private int duplicatesFound;
     void Awake() 
     {
         if(instance != null)
@@ -25,17 +24,6 @@ public class SolutionAndHintData : MonoBehaviour
         GameObject.DontDestroyOnLoad(this.gameObject);
 
         solutionList = solution.generateSolution();
-        int i = 0;
-        foreach(var solution in solutionList)
-        {
-            if(solution[1] == "naughty")
-            {
-                naughtyCatId = i;
-                naughtyList = solution;
-                break;
-            }
-            i++;
-        }
     }
     void Start()
     {
@@ -46,63 +34,34 @@ public class SolutionAndHintData : MonoBehaviour
     {
         return instance;
     }
+
     void InitialHintGeneration()
     {
-        while(convertedHintList.Count < 3)
-        {
-            Hint newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
-            string convertedHint = newHint.ConvertToDialogue();
-            bool flag = ValidateHint(convertedHint);
-            if(flag)
-            {
-                convertedHintList.Add(convertedHint);
-            }
-        }
         while(convertedHintList.Count < 5)
         {
-            Hint newHint = hintGenerator.OneToOneHintGenerator(solutionList);
-            string convertedHint = newHint.ConvertToDialogue();
-            bool flag = ValidateHint(convertedHint);
-            if(flag)
+            (string newHint, HashSet<string> potentialHints) = hintGenerator.GenerateHint(solutionList);
+            if(ValidateHint(newHint))
             {
-                convertedHintList.Add(convertedHint);                
+                convertedHintList.Add(newHint);
+                hiddenHintSet.UnionWith(potentialHints);
             }
         }
     }
 
     public void GenerateRandomHint(string catName)
     {
-        int type = Random.Range(0,5);
-        if(convertedHintList.Count > 10)
+        (string newHint, HashSet<string> potentialHints) = hintGenerator.GenerateHint(solutionList);
+        bool flag = ValidateGeneratedHint(newHint, catName);
+
+        duplicatesFound = 0;
+        while(!flag)
         {
-            type = 0;
+            (newHint, potentialHints) = hintGenerator.GenerateHint(solutionList);
+            flag = ValidateGeneratedHint(newHint, catName);
         }
-        if(type == 0)
-        {
-            Hint newHint = hintGenerator.OneToOneHintGenerator(solutionList);
-            string convertedHint = newHint.ConvertToDialogue();
-            bool flag = ValidateGeneratedHint(convertedHint, newHint, catName);
-            while(!flag)
-            {
-                newHint = hintGenerator.OneToOneHintGenerator(solutionList);
-                convertedHint = newHint.ConvertToDialogue();
-                flag = ValidateGeneratedHint(convertedHint, newHint, catName);
-            }
-            convertedHintList.Add(convertedHint);
-        }
-        else
-        {
-            Hint newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
-            string convertedHint = newHint.ConvertToDialogue();
-            bool flag = ValidateGeneratedHint(convertedHint, newHint, catName);
-            while(!flag)
-            {
-                newHint = hintGenerator.TwoToOneHintGenerator(solutionList);
-                convertedHint = newHint.ConvertToDialogue();
-                flag = ValidateGeneratedHint(convertedHint, newHint, catName);
-            }
-            convertedHintList.Add(convertedHint);
-        }
+
+        convertedHintList.Add(newHint);
+        hiddenHintSet.UnionWith(potentialHints);
         if(convertedHintList.Count == 25)
         {
             atCapacity = true;
@@ -110,38 +69,19 @@ public class SolutionAndHintData : MonoBehaviour
         displayHints.GetComponent<DisplayHints>().UpdateHints();
     }
 
-    public bool ValidateGeneratedHint(string convertedHint, Hint hint, string catName)
+    public bool ValidateGeneratedHint(string hint, string catName)
     {
-        if(convertedHintList.Contains(convertedHint))
+        if(hint.Contains(catName))
         {
             return false;
         }
-
-        if(hint.categoryOne == 0)
+        if(duplicatesFound > 30)
         {
-            foreach(var cat in hint.firstAgentSet)
-            {
-                if(cat == catName)
-                {
-                    return false;
-                }
-            }
+            return true;
         }
-        else if(hint.categoryTwo == 0)
+        if(hiddenHintSet.Contains(hint))
         {
-            if(hint.secondAgent == catName)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public bool ValidateHint(string convertedHint)
-    {
-        if(convertedHintList.Contains(convertedHint))
-        {
+            duplicatesFound ++;
             return false;
         }
         else
@@ -150,7 +90,15 @@ public class SolutionAndHintData : MonoBehaviour
         }
     }
 
-    void NaughtyAction()
+    public bool ValidateHint(string newHint)
     {
+        if(hiddenHintSet.Contains(newHint))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

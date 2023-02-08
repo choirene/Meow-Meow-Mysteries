@@ -19,6 +19,7 @@ public class HintGenerator
     {
         int randomInt = Random.Range(0,5);
         List<string> newEvent = solutionList[randomInt];
+        
         return newEvent;
     }
 
@@ -34,71 +35,92 @@ public class HintGenerator
         return false;
     }
     
-    public Hint OneToOneHintGenerator(List<List<string>> solutionList)
+    public (string, HashSet<string>) GenerateHint(List<List<string>> solutionList)
     {
+        List<string> newEvent = EventGeneration(solutionList);
+
+        int[] categories = GenerateCategories();
+
+        bool naughty = CheckNaughtiness(newEvent, categories);
+
+        while(naughty)
+        {
+            categories = GenerateCategories();
+            naughty = CheckNaughtiness(newEvent, categories);
+        }
+
         Hint newHint = new Hint();
 
         newHint.multiple = false;
 
-        List<string> newEvent = EventGeneration(solutionList);
-
-        int[] categories = GenerateCategories();
-
-        bool naughty = CheckNaughtiness(newEvent, categories);
-
-        while(naughty)
-        {
-            categories = GenerateCategories();
-            naughty = CheckNaughtiness(newEvent, categories);
-        }
-
         newHint.categoryOne = categories[0];
         newHint.categoryTwo = categories[1];
 
         newHint.firstAgentSet = new HashSet<string>();
         newHint.firstAgentSet.Add(newEvent[newHint.categoryOne]);
+        newHint.firstAgent = newEvent[newHint.categoryOne];
 
         newHint.secondAgent = newEvent[newHint.categoryTwo];
 
-        return newHint;
+        List<string> hintSet = GenerateAlternateHints(newHint, solutionList);
+        List<string> secondHintSet = FlippedAlternateHints(newHint, solutionList);
+        hintSet.AddRange(secondHintSet);
+        int randomIndex = Random.Range(0, hintSet.Count);
+
+        string randomHint = hintSet[randomIndex];
+        var hashSet = new HashSet<string>(hintSet);
+
+        return (randomHint, hashSet);
     }
-    public Hint TwoToOneHintGenerator(List<List<string>> solutionList)
+
+    List<string> FlippedAlternateHints(Hint altHint, List<List<string>> solutionList)
     {
-        Hint newHint = new Hint();
+        Hint flippedHint = new Hint();
+        flippedHint.multiple = false;
+        flippedHint.firstAgentSet = new HashSet<string>();
+        flippedHint.firstAgentSet.Add(altHint.secondAgent);
+        flippedHint.firstAgent = altHint.secondAgent;
+        flippedHint.categoryOne = altHint.categoryTwo;
+        flippedHint.categoryTwo = altHint.categoryOne;
+        flippedHint.secondAgent = altHint.firstAgent;
 
-        newHint.multiple = true;
+        List<string> flippedAlternativeSet = GenerateAlternateHints(flippedHint, solutionList);
+        return flippedAlternativeSet;
+    }
 
-        List<string> newEvent = EventGeneration(solutionList);
+    List<string> GenerateAlternateHints(Hint altHint, List<List<string>> solutionList)
+    {
+        List<string> alternateHints = new List<string>();
+        alternateHints.Add(altHint.ConvertToDialogue());
+        List<string> possibleFirstAgents = GeneratePossibleAgents(altHint, solutionList);
 
-        int[] categories = GenerateCategories();
-
-        bool naughty = CheckNaughtiness(newEvent, categories);
-
-        while(naughty)
+        foreach(var agent in possibleFirstAgents)
         {
-            categories = GenerateCategories();
-            naughty = CheckNaughtiness(newEvent, categories);
+            Hint multipleHint = new Hint();
+            multipleHint.multiple = true;
+            multipleHint.firstAgentSet = new HashSet<string>();
+            multipleHint.firstAgentSet.Add(altHint.firstAgent);
+            multipleHint.firstAgentSet.Add(agent);
+            multipleHint.firstAgent = altHint.firstAgent;
+            multipleHint.secondAgent = altHint.secondAgent;
+            multipleHint.categoryOne = altHint.categoryOne;
+            multipleHint.categoryTwo = altHint.categoryTwo;
+
+            alternateHints.Add(multipleHint.ConvertToDialogue());
         }
+        return alternateHints;
+    }
 
-        newHint.categoryOne = categories[0];
-        newHint.categoryTwo = categories[1];
-
-        newHint.firstAgentSet = new HashSet<string>();
-        newHint.firstAgentSet.Add(newEvent[newHint.categoryOne]);
-
+    List<string> GeneratePossibleAgents(Hint hint, List<List<string>> solutionList)
+    {
         List<string> possibleFirstAgents = new List<string>();
-        foreach(var i in solutionList)
+        foreach(var randomEvent in solutionList)
         {
-            if(!(newHint.firstAgentSet.Contains(i[newHint.categoryOne])) && i[newHint.categoryOne] != "naughty")
+            if(!(hint.firstAgentSet.Contains(randomEvent[hint.categoryOne])) && randomEvent[hint.categoryOne] != "naughty")
             {
-                possibleFirstAgents.Add(i[newHint.categoryOne]);
+                possibleFirstAgents.Add(randomEvent[hint.categoryOne]);
             }
         }
-        int randomIndex = Random.Range(0,possibleFirstAgents.Count);
-        newHint.firstAgentSet.Add(possibleFirstAgents[randomIndex]);
-
-        newHint.secondAgent = newEvent[newHint.categoryTwo];
-
-        return newHint;
+        return possibleFirstAgents;
     }
 }
