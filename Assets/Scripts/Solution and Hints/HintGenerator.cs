@@ -55,8 +55,8 @@ public class HintGenerator
         newHint.categoryOne = categories[0];
         newHint.categoryTwo = categories[1];
 
-        newHint.firstAgentList = new List<string>();
-        newHint.firstAgentList.Add(newEvent[newHint.categoryOne]);
+        newHint.firstAgentSet = new HashSet<string>();
+        newHint.firstAgentSet.Add(newEvent[newHint.categoryOne]);
 
         newHint.secondAgent = newEvent[newHint.categoryTwo];
 
@@ -83,19 +83,19 @@ public class HintGenerator
         newHint.categoryOne = categories[0];
         newHint.categoryTwo = categories[1];
 
-        newHint.firstAgentList = new List<string>();
-        newHint.firstAgentList.Add(newEvent[newHint.categoryOne]);
+        newHint.firstAgentSet = new HashSet<string>();
+        newHint.firstAgentSet.Add(newEvent[newHint.categoryOne]);
 
         List<string> possibleFirstAgents = new List<string>();
         foreach(var i in solutionList)
         {
-            if(i[newHint.categoryOne] != newHint.firstAgentList[0] && i[newHint.categoryOne] != "naughty")
+            if(!(newHint.firstAgentSet.Contains(i[newHint.categoryOne])) && i[newHint.categoryOne] != "naughty")
             {
                 possibleFirstAgents.Add(i[newHint.categoryOne]);
             }
         }
         int randomIndex = Random.Range(0,possibleFirstAgents.Count);
-        newHint.firstAgentList.Add(possibleFirstAgents[randomIndex]);
+        newHint.firstAgentSet.Add(possibleFirstAgents[randomIndex]);
 
         newHint.secondAgent = newEvent[newHint.categoryTwo];
 

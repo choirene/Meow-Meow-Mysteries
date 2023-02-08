@@ -119,7 +119,7 @@ public class SolutionAndHintData : MonoBehaviour
 
         if(hint.categoryOne == 0)
         {
-            foreach(var cat in hint.firstAgentList)
+            foreach(var cat in hint.firstAgentSet)
             {
                 if(cat == catName)
                 {

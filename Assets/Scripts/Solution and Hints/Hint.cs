@@ -5,7 +5,8 @@ using UnityEngine;
 public class Hint 
 {
     public bool multiple;
-    public List<string> firstAgentList;
+    public List<string> firstAgentList = new List<string>();
+    public HashSet<string> firstAgentSet;
     public int categoryOne;
     public string secondAgent;
     public int categoryTwo;
@@ -16,6 +17,11 @@ public class Hint
         string cat = string.Empty;
         string activity = string.Empty;
         string location = string.Empty;
+
+        foreach(var agent in firstAgentSet)
+        {
+            firstAgentList.Add(agent);
+        }
 
         // Who
         if(categoryOne == 0)
