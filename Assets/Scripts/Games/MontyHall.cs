@@ -54,16 +54,16 @@ public class MontyHall : MonoBehaviour
         if(choiceActive)
         {
             doorChoiceIndex = index;
+            if(secondChoice)
+            {
+                EndGame();
+            }
+            else
+            {
+                AskSwitchDoor();
+            }
         }
 
-        if(secondChoice)
-        {
-            EndGame();
-        }
-        else
-        {
-            AskSwitchDoor();
-        }
     }
 
     void AskSwitchDoor()

@@ -69482,7 +69482,7 @@ MonoBehaviour:
     - ...Fine.
     playGame: What? No way.
     winGame: I hate you.
-    loseGame: Can you leave now?
+    loseGame: Serves you right.
     bribe:
     - No.
     - Give it to me.
@@ -74334,7 +74334,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Coco has run away! \nFigure out which door she hid behind to earn a clue."
+  m_text: "Coco has run away! \nFigure out which door she hid behind to earn a clue.\nAfter
+    your first guess, a door will be revealed to you. You'll be asked if you want
+    to keep your original choice or switch doors. Choose wisely..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
   m_sharedMaterial: {fileID: -5528725944617821040, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
