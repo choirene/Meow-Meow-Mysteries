@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickSubmit : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class ClickSubmit : MonoBehaviour
         accusation.Add(activityList[activity.selection]);
         accusation.Add(locationList[location.selection]);
         aManager.accusationsMade ++;
+        catDMList[catId].TurnAround();
         switch(catId)
         {
             case 0:
@@ -60,9 +62,5 @@ public class ClickSubmit : MonoBehaviour
 
             aManager.FinalAccusation(accusationList);
         }
-
-        // submit animation
-
-
     }
 }

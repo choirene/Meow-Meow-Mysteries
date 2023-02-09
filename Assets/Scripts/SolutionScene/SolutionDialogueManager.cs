@@ -14,11 +14,14 @@ public class SolutionDialogueManager : MonoBehaviour
     public bool accused;
     public ClickSubmit submitButton;
     
+    [SerializeField] GameObject frontSprite, backSprite;
 
 
     void Start()
     {
         accused = false;
+        frontSprite.SetActive(true);
+        backSprite.SetActive(false);
     }
 
     void Update()
@@ -38,13 +41,18 @@ public class SolutionDialogueManager : MonoBehaviour
         characterSprite.SetActive(true);
         catDialogue.text = currentNPC.dialogue;
         accuseHeader.text = currentNPC.name + " was...";
-
     }
 
     public void EndDialogue()
     {
         accusePanel.SetActive(false);
         characterSprite.SetActive(false);
+    }
+
+    public void TurnAround()
+    {
+        frontSprite.SetActive(false);
+        backSprite.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
