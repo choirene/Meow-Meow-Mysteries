@@ -75,6 +75,8 @@ public class DialogueManager : MonoBehaviour
         characterSprite.SetActive(true);
         choiceButtons.catId = dialogue.id;
 
+        SoundEffects.GetInstance().PlayMeow();
+
         currentState = State.greeting;
 
         DisplayNextSentence();
@@ -231,6 +233,4 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
         }
     }
-
-
 }
