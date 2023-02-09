@@ -8,6 +8,7 @@ public class AccusationManager : MonoBehaviour
     List<List<string>> solutionList;
     public int accusationsMade;
     string solutionString;
+    public Animator transition;
 
     void Start()
     {
@@ -34,16 +35,21 @@ public class AccusationManager : MonoBehaviour
                 accusationString = accusationString + thing;
             }
         }
-        Debug.Log(accusationString);
 
         if(solutionString == accusationString)
         {
-            SceneManager.LoadScene("WinScene", LoadSceneMode.Single);        
+            StartCoroutine(CrossFade("WinScene"));
         }
         else
         {
-            SceneManager.LoadScene("LoseScene", LoadSceneMode.Single);        
+            StartCoroutine(CrossFade("LoseScene"));
         }
+    }
 
+    IEnumerator CrossFade(string sceneName)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(sceneName);
     }
 }

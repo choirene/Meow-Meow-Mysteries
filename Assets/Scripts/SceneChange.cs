@@ -7,6 +7,7 @@ public class SceneChange : MonoBehaviour
 {
     public GameObject exitInstructions;
     public GameObject solutionInstructions;
+    public Animator transition;
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.CompareTag("Player"))
@@ -37,6 +38,13 @@ public class SceneChange : MonoBehaviour
 
     public void OnClickReady()
     {
-        SceneManager.LoadScene("SubmitSolution", LoadSceneMode.Single);
+        StartCoroutine(CrossFade("SubmitSolution"));
+    }
+
+    IEnumerator CrossFade(string sceneName)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(sceneName);
     }
 }

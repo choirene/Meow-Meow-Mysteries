@@ -7,6 +7,7 @@ public class StartMenu : MonoBehaviour
 {
     public List<GameObject> catList;
     public GameObject optionsMenu;
+    public Animator transition;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class StartMenu : MonoBehaviour
 
     public void ClickStartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+        StartCoroutine(CrossFade(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void ClickOptionsMenu()
     {
@@ -29,5 +30,13 @@ public class StartMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    IEnumerator CrossFade(int sceneIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(sceneIndex);
+    }
+
 
 }
