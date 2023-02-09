@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Hint 
 {
-    public bool multiple;
-    public HashSet<string> firstAgentSet;
-    public string firstAgent;
+    // public bool multiple;
+    public List<string> firstAgentList;
     public int categoryOne;
     public string secondAgent;
     public int categoryTwo;
@@ -17,19 +16,12 @@ public class Hint
         string cat = string.Empty;
         string activity = string.Empty;
         string location = string.Empty;
-        
-        List<string> firstAgentList = new List<string>();
-
-        foreach(var agent in firstAgentSet)
-        {
-            firstAgentList.Add(agent);
-        }
 
         // Who
         if(categoryOne == 0)
         {  
             cat = firstAgentList[0] + " ";
-            if(multiple)
+            if(firstAgentList.Count > 1)
             {
                 cat = cat + "or " + firstAgentList[1] + " ";
             }
@@ -48,7 +40,7 @@ public class Hint
         if(categoryOne == 1)
         {  
             activity = firstAgentList[0] + " ";
-            if(multiple)
+            if(firstAgentList.Count > 1)
             {
                 activity = activity + "or " + firstAgentList[1] + " ";
             }
@@ -62,7 +54,7 @@ public class Hint
         if(categoryOne == 2)
         {
             location = "in the " + firstAgentList[0];
-            if(multiple)
+            if(firstAgentList.Count > 1)
             {
                 location = location + " or " + firstAgentList[1];
             }

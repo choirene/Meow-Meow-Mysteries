@@ -61,7 +61,7 @@ public class KaraokeClicker : MonoBehaviour
             fillFraction = timerValue / timeLimit;
             rightTimerImage.fillAmount = fillFraction;
             leftTimerImage.fillAmount = fillFraction;
-            basilClicks += (Time.deltaTime * (6.5f + Random.Range(0,.7f)));
+            basilClicks += (Time.deltaTime * (6.3f + Random.Range(0,.7f)));
             basilSlider.value = basilClicks;
         }
         else
@@ -89,7 +89,7 @@ public class KaraokeClicker : MonoBehaviour
     {
         if(gameStarted)
         {
-            if(percySlider.value < 100)
+            if(percySlider.value < 80)
             {
                 percySlider.value ++;
                 if(percySlider.value < 10)

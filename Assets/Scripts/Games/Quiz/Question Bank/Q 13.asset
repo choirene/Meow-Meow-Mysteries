@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d98486550cd044cabe004c9c8ece0db, type: 3}
-  m_Name: Q2
+  m_Name: Q 13
   m_EditorClassIdentifier: 
-  question: Which species does the scientific name 'Glaucidium tephronotum' refer
-    to?
+  question: What food is traditionally eaten on kimchi making days?
   answers:
-  - Pearl-spotted owlet
-  - Red-chested owlet
-  - Chestnut-backed owlet
-  - Elf owl
-  correctAnswer: 1
+  - Geotjeori
+  - Samgyeopsal
+  - Galbi
+  - Soondubu
+  correctAnswer: 0

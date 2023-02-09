@@ -62,20 +62,22 @@ public class SolutionAndHintData : MonoBehaviour
 
         convertedHintList.Add(newHint);
         hiddenHintSet.UnionWith(potentialHints);
-        if(convertedHintList.Count == 25)
+        if(convertedHintList.Count >= 25)
         {
             atCapacity = true;
         }
         displayHints.GetComponent<DisplayHints>().UpdateHints();
+        Debug.Log(convertedHintList.Count);
+        Debug.Log(duplicatesFound);
     }
 
     public bool ValidateGeneratedHint(string hint, string catName)
     {
-        if(hint.Contains(catName))
+        if(hint.Contains(catName) || convertedHintList.Contains(hint))
         {
             return false;
         }
-        if(duplicatesFound > 30)
+        if(duplicatesFound > 40)
         {
             return true;
         }

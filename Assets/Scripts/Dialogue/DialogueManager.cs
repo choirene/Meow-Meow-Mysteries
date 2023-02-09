@@ -60,6 +60,11 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue ()
     {
+        if(SolutionAndHintData.GetInstance().atCapacity)
+        {
+            atCapacity = true;
+        }
+
         if(!dialoguePanel.activeInHierarchy)
         {
             dialoguePanel.SetActive(true);
@@ -133,7 +138,7 @@ public class DialogueManager : MonoBehaviour
                 break;
             case State.noMoreClues:
                 textComponent.text = dialogue.noMoreClues;
-                currentState = State.goodbye;
+                currentState = State.end;
                 break;
             case State.afterClue:
                 textComponent.text = dialogue.afterClue;
@@ -204,6 +209,7 @@ public class DialogueManager : MonoBehaviour
         {
             atCapacity = true;
         }
+
     }
 
     public void EndDialogue()

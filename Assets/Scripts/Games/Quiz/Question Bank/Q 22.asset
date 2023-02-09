@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d98486550cd044cabe004c9c8ece0db, type: 3}
-  m_Name: Q14
+  m_Name: Q 22
   m_EditorClassIdentifier: 
-  question: In Korean culture, what food is traditionally eaten on New Years Day?
+  question: Which science fiction author wrote a book about vampires?
   answers:
-  - Gyeranjjim
-  - Tteokguk
-  - Tangsuyuk
-  - Japchae
+  - Arthur C. Clarke
+  - Octavia Butler
+  - Isaac Asimov
+  - H. G. Wells
   correctAnswer: 1
