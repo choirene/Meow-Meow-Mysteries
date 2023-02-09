@@ -12,9 +12,9 @@ https://cupnooble.itch.io/sprout-lands-ui-pack
 
 https://datagoblin.itch.io/monogram
 
-https://richarrest.itch.io/classic-jrpg-music-pack-medium-pack
-
 https://tallbeard.itch.io/three-red-hearts-prepare-to-dev
 
 https://ahai64.itch.io/little-poker
+
+https://benjaminno.itch.io/sweet-sounds-sfx-pack
 (i'll format this later)
