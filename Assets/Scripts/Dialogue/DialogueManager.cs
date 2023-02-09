@@ -205,11 +205,6 @@ public class DialogueManager : MonoBehaviour
         solutionData.GenerateRandomHint(dialogue.name);
         string lastHint = solutionData.convertedHintList[^1];
         textComponent.text = lastHint;
-        if(solutionData.atCapacity)
-        {
-            atCapacity = true;
-        }
-
     }
 
     public void EndDialogue()
