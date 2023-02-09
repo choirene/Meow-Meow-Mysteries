@@ -35,6 +35,7 @@ public class Quiz : MonoBehaviour
     {
         if(index != correctAnswerIndex)
         {
+            SoundEffects.GetInstance().PlayLoseSound();
             minigameManager.CloseGame(false);
             return;
         }
@@ -43,6 +44,7 @@ public class Quiz : MonoBehaviour
 
         if(currentQuestionIndex == questionList.Count)
         {
+            SoundEffects.GetInstance().PlayWinSound();
             minigameManager.CloseGame(true);
         }
         else

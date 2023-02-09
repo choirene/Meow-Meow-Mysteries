@@ -91,6 +91,7 @@ public class HigherOrLower : MonoBehaviour
 
         if(nextCard == 5)
         {
+            SoundEffects.GetInstance().PlayWinSound();
             continueButton.SetActive(true);
             text.text = "Congrats!";
         }
@@ -103,6 +104,7 @@ public class HigherOrLower : MonoBehaviour
 
     void LoseRound()
     {
+        SoundEffects.GetInstance().PlayLoseSound();
         buttonsPanel.SetActive(false);
         endPanel.SetActive(true);
         quitButton.SetActive(true);

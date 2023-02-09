@@ -138,6 +138,7 @@ public class Blackjack : MonoBehaviour
 
     void LoseGame()
     {
+        SoundEffects.GetInstance().PlayLoseSound();
         buttonsPanel.SetActive(false);
         endPanel.SetActive(true);
         dealerText.text = "You lose...";
@@ -146,6 +147,7 @@ public class Blackjack : MonoBehaviour
 
     void WinGame()
     {
+        SoundEffects.GetInstance().PlayWinSound();
         buttonsPanel.SetActive(false);
         dealerText.text = "You win!";
         continueButton.SetActive(true);

@@ -41,6 +41,7 @@ public class SolutionDialogueManager : MonoBehaviour
         characterSprite.SetActive(true);
         catDialogue.text = currentNPC.dialogue;
         accuseHeader.text = currentNPC.name + " was...";
+        SoundEffects.GetInstance().PlayMeow();
     }
 
     public void EndDialogue()

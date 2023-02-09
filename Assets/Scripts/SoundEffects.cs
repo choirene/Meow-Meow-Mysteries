@@ -35,4 +35,17 @@ public class SoundEffects : MonoBehaviour
         audioSource.clip = soundEffects[1];
         audioSource.Play();
     }
+
+    public void PlayWinSound()
+    {
+        audioSource.clip = soundEffects[2];
+        audioSource.Play();
+    }
+
+    public void PlayLoseSound()
+    {
+        audioSource.clip = soundEffects[3];
+        audioSource.Play();
+    }
+
 }

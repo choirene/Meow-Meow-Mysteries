@@ -106,11 +106,13 @@ public class MontyHall : MonoBehaviour
         }
         if(doorChoiceIndex == cocoIndex)
         {
+            SoundEffects.GetInstance().PlayWinSound();
             endText.GetComponent<TMP_Text>().text = "You found her!";
             winButton.SetActive(true);
         }
         else
         {
+            SoundEffects.GetInstance().PlayLoseSound();
             endText.GetComponent<TMP_Text>().text = "She got away...";
             playAgainButton.SetActive(true);
             loseButton.SetActive(true);

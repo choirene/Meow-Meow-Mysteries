@@ -212,6 +212,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         dialoguePanel.SetActive(false);
+        dialogueOptions.SetActive(false);
         characterSprite.SetActive(false);
         dialogueStarted = false;
         menu.SetActive(true);
