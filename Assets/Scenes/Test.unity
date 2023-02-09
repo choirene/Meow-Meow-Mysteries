@@ -38268,6 +38268,10 @@ MonoBehaviour:
     - ...!
     - ...............
     - .........
+    - ..... :3
+    - .... :P
+    - .... :D
+    - ......~
     askForAction: ...?
     beg:
     - .... :/
@@ -38280,7 +38284,7 @@ MonoBehaviour:
     - ..... :)
     noMoreClues: ....?
     afterClue: Ciao~
-    goodbye: .....~
+    goodbye: Ciao~
   minigameManager: {fileID: 314071587}
 --- !u!70 &628339916
 CapsuleCollider2D:
@@ -46604,6 +46608,8 @@ MonoBehaviour:
     - "I\u2019ve been trying to get Hazel to sing duets with me but she says I\u2019m
       off key\u2026"
     - I miss belly rubs.
+    - Sometimes I forget that Coco's my mom.
+    - Lukie trapped me in a box yesterday... It took me over an hour to get out :(
     askForAction: How can I help you?
     beg:
     - Sorry, Hazel said not to help you.
@@ -46615,7 +46621,8 @@ MonoBehaviour:
     bribe:
     - "\u2026I can feel my stomach turning. No thanks."
     - "That looks so yummy\u2026 Wait for me? Really? Thank you!"
-    noMoreClues: If you're ready to submit, head over to the room on the bottom right!
+    noMoreClues: If you're ready to make your accusation, head down the hall on the
+      right of the living room!
     afterClue: Hope that helps!
     goodbye: See you later!
   minigameManager: {fileID: 314071587}
@@ -60139,6 +60146,10 @@ MonoBehaviour:
     - Hazel says I'm not allowed near her because I'm "oon-high-gen-ick". Whatever
       that means.
     - Do you have food?
+    - Hey hey hey!
+    - Basil's so mean. He wouldn't let me eat ANY of the yummy chocolate I found....
+    - Hazel said I was gross for enjoying some yummy treats. Why does it matter that
+      I found them in the trashcan?
     askForAction: What's up?
     beg:
     - Ooh... Ah... I can't remember, oops.
@@ -69503,6 +69514,7 @@ MonoBehaviour:
     - Go away.
     - '*hiss*'
     - I hate my children.
+    - Don't talk to me.
     askForAction: What do you want.
     beg:
     - No.
@@ -70484,6 +70496,9 @@ MonoBehaviour:
     - Ew, what's that smell? Oh, it's you.
     - "I saw Jackie eating his own snot\u2026 I don\u2019t believe he\u2019s actually
       a cat."
+    - Don't you have better things to do?
+    - Basil keeps bugging me about being less rude. He doesn't get that I could be
+      meaner if I wanted to.
     askForAction: What do you want, stinky?
     beg:
     - Seriously? No.
