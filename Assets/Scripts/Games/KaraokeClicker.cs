@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 
 public class KaraokeClicker : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class KaraokeClicker : MonoBehaviour
     [SerializeField] Slider percySlider;
     [SerializeField] Image rightTimerImage;
     [SerializeField] Image leftTimerImage;
+    [SerializeField] AudioSource soundEffects;
+    [SerializeField] AudioClip catMeow, alarmSound;
     [SerializeField] TMP_Text text;
     [Header("Buttons")]
     [SerializeField] GameObject startButton;
@@ -61,7 +64,7 @@ public class KaraokeClicker : MonoBehaviour
             fillFraction = timerValue / timeLimit;
             rightTimerImage.fillAmount = fillFraction;
             leftTimerImage.fillAmount = fillFraction;
-            basilClicks += (Time.deltaTime * (6.3f + Random.Range(0,.7f)));
+            basilClicks += (Time.deltaTime * (6.3f + Random.Range(0,.5f)));
             basilSlider.value = basilClicks;
         }
         else
@@ -72,6 +75,8 @@ public class KaraokeClicker : MonoBehaviour
 
     void EndGame()
     {
+        soundEffects.clip = alarmSound;
+        soundEffects.Play();
         gameStarted = false;
         text.text = "";
         if(percySlider.value > basilSlider.value)
@@ -92,6 +97,8 @@ public class KaraokeClicker : MonoBehaviour
             if(percySlider.value < 80)
             {
                 percySlider.value ++;
+                soundEffects.clip = catMeow;
+                soundEffects.Play();
                 if(percySlider.value < 10)
                 {
                     text.text = "Better start singing!";

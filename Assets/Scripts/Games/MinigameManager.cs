@@ -11,6 +11,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] AudioSource mainAudio;
     [SerializeField] AudioSource gameAudio;
+    [SerializeField] AudioClip regularGameTrack, basilTrack;
     int currentId;
 
     private void Start() {
@@ -18,8 +19,6 @@ public class MinigameManager : MonoBehaviour
     }
     public void StartGame(int catId)
     {
-        StartCoroutine(FadeTrack(mainAudio, gameAudio));
-
         dialoguePanel.SetActive(false);
         currentId = catId;
         player.GetComponent<Movement>().enabled = false;
@@ -30,6 +29,7 @@ public class MinigameManager : MonoBehaviour
                 games[catId].GetComponent<MontyHall>().StartGame();
                 break;
             case 1:
+                gameAudio.clip = basilTrack;
                 games[catId].GetComponent<KaraokeClicker>().StartGame();
                 break;
             case 2:
@@ -42,11 +42,13 @@ public class MinigameManager : MonoBehaviour
                 games[catId].GetComponent<HigherOrLower>().StartGame();
                 break;
         }
+        StartCoroutine(FadeTrack(mainAudio, gameAudio));
     }
 
     public void CloseGame(bool winGame)
     {
         StartCoroutine(FadeTrack(gameAudio, mainAudio));
+        gameAudio.clip = regularGameTrack;
 
         dialoguePanel.SetActive(true);
         player.GetComponent<Movement>().enabled = true;

@@ -3672,8 +3672,8 @@ MonoBehaviour:
   m_text: "This game was created with \nthe following itch.io assets\n- Nekonin RPG
     Characters by Pipoya\n- Top Down Retro House by Penzilla\n- Interior Tileset
     for Top-Down by Raou\n- Sprout Lands UI Pack by Cupnooble\n- Monogram by Datagoblin\n-
-    Ancient Dragon - Classic JRPG Music Pack by Richarrest (Ricardo Cuello)\n- Three
-    Red Hearts by Tallbeard/Abstraction\n- Little Poker by ahai64"
+    Three Red Hearts by Tallbeard/Abstraction\n- Little Poker by ahai64\n- Sound
+    Effects by Coffee 'Valen' Bat\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
   m_sharedMaterial: {fileID: -5528725944617821040, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
