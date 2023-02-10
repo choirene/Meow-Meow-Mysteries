@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Hint 
 {
-    // public bool multiple;
     public List<string> firstAgentList;
     public int categoryOne;
     public string secondAgent;

@@ -11,8 +11,6 @@ public class KaraokeClicker : MonoBehaviour
     [SerializeField] Slider percySlider;
     [SerializeField] Image rightTimerImage;
     [SerializeField] Image leftTimerImage;
-    // [SerializeField] AudioSource soundEffects;
-    // [SerializeField] AudioClip catMeow, alarmSound;
     [SerializeField] TMP_Text text;
     [Header("Buttons")]
     [SerializeField] GameObject startButton;
