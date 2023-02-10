@@ -7,12 +7,12 @@ public class SolutionAndHintData : MonoBehaviour
     SolutionGenerator solution = new SolutionGenerator();
     HintGenerator hintGenerator = new HintGenerator();
     public List<string> convertedHintList = new List<string>();
-    private HashSet<string> hiddenHintSet = new HashSet<string>();
+    List<List<string>> trueHints = new List<List<string>>();
+    List<List<string>> extraHints = new List<List<string>>();
     public List<List<string>> solutionList = new List<List<string>>();
     public GameObject displayHints;
     public bool atCapacity;
     public static SolutionAndHintData instance;
-    private int duplicatesFound;
     void Awake() 
     {
         if(instance != null)
@@ -24,6 +24,7 @@ public class SolutionAndHintData : MonoBehaviour
         GameObject.DontDestroyOnLoad(this.gameObject);
 
         solutionList = solution.generateSolution();
+        GenerateTrueHints();
     }
     void Start()
     {
@@ -35,72 +36,85 @@ public class SolutionAndHintData : MonoBehaviour
         return instance;
     }
 
-    void InitialHintGeneration()
+    void GenerateTrueHints()
     {
-        while(convertedHintList.Count < 5)
+        foreach(var combo in solutionList)
         {
-            (string newHint, HashSet<string> potentialHints) = hintGenerator.GenerateHint(solutionList);
-            if(ValidateHint(newHint))
+            if(combo[1] == "naughty")
             {
-                convertedHintList.Add(newHint);
-                hiddenHintSet.UnionWith(potentialHints);
+                List<string> naughtyCopy = new List<string>();
+                naughtyCopy.Add(combo[0]);
+                naughtyCopy.Add(null);
+                naughtyCopy.Add(combo[2]);
+                trueHints.Add(naughtyCopy);
+            }
+            else
+            {
+                List<List<string>> eventCopies = new List<List<string>>();
+                for(int i = 0; i < 3; i++)
+                {
+                    List<string> eventCopy = new List<string>();
+                    for(int j = 0; j < 3; j++)
+                    {
+                        eventCopy.Add(combo[j]);
+                    }
+                    eventCopies.Add(eventCopy);
+                }
+                for(int i = 0; i < eventCopies.Count; i++)
+                {
+                    eventCopies[i][i] = null;
+                }
+                trueHints.AddRange(eventCopies);
             }
         }
     }
 
     public void GenerateRandomHint(string catName)
     {
-        (string newHint, HashSet<string> potentialHints) = hintGenerator.GenerateHint(solutionList);
-        bool flag = ValidateGeneratedHint(newHint, catName);
-
-        duplicatesFound = 0;
-        while(!flag)
+        if(trueHints.Count > 0)
         {
-            (newHint, potentialHints) = hintGenerator.GenerateHint(solutionList);
-            flag = ValidateGeneratedHint(newHint, catName);
-        }
+            int randomIndex = Random.Range(0, trueHints.Count);
+            string newHint = hintGenerator.CreateNewHint(trueHints[randomIndex], solutionList);
+            while(newHint.Contains(catName))
+            {
+                randomIndex = Random.Range(0, trueHints.Count);
+                newHint = hintGenerator.CreateNewHint(trueHints[randomIndex], solutionList);
+            }
+            if(newHint.Contains("or"))
+            {
+                extraHints.Add(trueHints[randomIndex]);
+            }
+            trueHints.RemoveAt(randomIndex);
 
-        convertedHintList.Add(newHint);
-        hiddenHintSet.UnionWith(potentialHints);
+            convertedHintList.Add(newHint);
+        }
+        else
+        {
+            int randomIndex = Random.Range(0, extraHints.Count);
+            string newHint = hintGenerator.CreateNewHint(extraHints[randomIndex], solutionList);
+            while(newHint.Contains(catName))
+            {
+                randomIndex = Random.Range(0, extraHints.Count);
+                newHint = hintGenerator.CreateNewHint(extraHints[randomIndex], solutionList);
+            }
+            convertedHintList.Add(newHint);
+        }
         if(convertedHintList.Count >= 25)
         {
             atCapacity = true;
         }
         displayHints.GetComponent<DisplayHints>().UpdateHints();
-        Debug.Log(convertedHintList.Count);
-        Debug.Log(duplicatesFound);
     }
 
-    public bool ValidateGeneratedHint(string hint, string catName)
+    void InitialHintGeneration()
     {
-        if(hint.Contains(catName) || convertedHintList.Contains(hint))
+        while(convertedHintList.Count < 5)
         {
-            return false;
-        }
-        if(duplicatesFound > 40)
-        {
-            return true;
-        }
-        if(hiddenHintSet.Contains(hint))
-        {
-            duplicatesFound ++;
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
+            int randomIndex = Random.Range(0, trueHints.Count);
+            string newHint = hintGenerator.CreateNewHint(trueHints[randomIndex], solutionList);
+            trueHints.RemoveAt(randomIndex);
 
-    public bool ValidateHint(string newHint)
-    {
-        if(hiddenHintSet.Contains(newHint))
-        {
-            return false;
-        }
-        else
-        {
-            return true;
+            convertedHintList.Add(newHint);
         }
     }
 }
