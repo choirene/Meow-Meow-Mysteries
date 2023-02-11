@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686781a3107074bccb17198f9190880e, type: 3}
+  m_Name: counter2
+  m_EditorClassIdentifier: 
+  flavorText: It's fun to jump up here! Well, that is, until you get caught.
+  potentialYields:
+  - {fileID: 11400000, guid: 4641629c3a9504f02b48d62a417608ff, type: 2}
+  - {fileID: 11400000, guid: c0dd4ff61862f4bab9834eafe16290f5, type: 2}
+  - {fileID: 11400000, guid: b8dd0f3c688f94e3db8dbb23c1ab469f, type: 2}
+  - {fileID: 11400000, guid: 242f38cef86b24653aeac23362b7dbfa, type: 2}
+  - {fileID: 11400000, guid: 6c8565db14df6411792c80f10fccecaf, type: 2}
+  yieldPossible: 0
