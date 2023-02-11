@@ -11,6 +11,7 @@ public class TriggerInteraction : MonoBehaviour
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text dialogueText;
     bool playerInRange;
+    bool npcInRange;
     FurnitureSO furnitureData;
     State currentState;
 
@@ -30,11 +31,16 @@ public class TriggerInteraction : MonoBehaviour
 
     void Update()
     {
+        if(npcInRange)
+        {
+            currentState = State.notActive;
+        }
         if(Input.GetKeyDown(KeyCode.X) && playerInRange)
         {
             if(currentState == State.active)
             {
                 StartInteraction();
+                Debug.Log("interaction started");
             }
             else
             {
@@ -92,6 +98,10 @@ public class TriggerInteraction : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
+        if(other.CompareTag("NPC"))
+        {
+            npcInRange = true;
+        }
         if(other.CompareTag("Furniture"))
         {
             if(currentState == State.notActive)
@@ -104,6 +114,10 @@ public class TriggerInteraction : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other) 
     {
+        if(other.CompareTag("NPC"))
+        {
+            npcInRange = false;
+        }
         if(other.CompareTag("Furniture"))
         {
             playerInRange = false;

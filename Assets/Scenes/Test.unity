@@ -2711,6 +2711,7 @@ GameObject:
   - component: {fileID: 87896144}
   - component: {fileID: 87896145}
   - component: {fileID: 87896146}
+  - component: {fileID: 87896147}
   m_Layer: 0
   m_Name: sidearmchair
   m_TagString: Furniture
@@ -2731,7 +2732,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &87896145
 SpriteRenderer:
@@ -2817,6 +2818,19 @@ PolygonCollider2D:
       - {x: 0.71875, y: -1.125}
       - {x: 0.71875, y: 1}
       - {x: 0.59375, y: 1.0625}
+--- !u!114 &87896147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87896143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1b374398ad44179137c26ec3d1e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureData: {fileID: 0}
 --- !u!1 &90236844
 GameObject:
   m_ObjectHideFlags: 0
@@ -7615,6 +7629,7 @@ GameObject:
   - component: {fileID: 246685459}
   - component: {fileID: 246685460}
   - component: {fileID: 246685461}
+  - component: {fileID: 246685462}
   m_Layer: 0
   m_Name: sofaside
   m_TagString: Furniture
@@ -7635,7 +7650,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &246685460
 SpriteRenderer:
@@ -7721,6 +7736,19 @@ PolygonCollider2D:
       - {x: 0.6875, y: -1.71875}
       - {x: 0.6875, y: 1.53125}
       - {x: 0.5, y: 1.59375}
+--- !u!114 &246685462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246685458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1b374398ad44179137c26ec3d1e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureData: {fileID: 0}
 --- !u!1 &258853037
 GameObject:
   m_ObjectHideFlags: 0
@@ -11263,6 +11291,7 @@ GameObject:
   - component: {fileID: 337162969}
   - component: {fileID: 337162970}
   - component: {fileID: 337162971}
+  - component: {fileID: 337162972}
   m_Layer: 0
   m_Name: lamp
   m_TagString: Furniture
@@ -11372,6 +11401,19 @@ PolygonCollider2D:
       - {x: 0.40625, y: -1.3125}
       - {x: 0.40625, y: -1.1875}
       - {x: 0.59375, y: -0.1875}
+--- !u!114 &337162972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337162968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1b374398ad44179137c26ec3d1e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureData: {fileID: 0}
 --- !u!1 &344110573
 GameObject:
   m_ObjectHideFlags: 0
@@ -65324,7 +65366,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &612610498
 SpriteRenderer:
@@ -66191,7 +66233,7 @@ GameObject:
   - component: {fileID: 628339915}
   m_Layer: 0
   m_Name: Lukie
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74147,7 +74189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 5
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &838134732
 SpriteRenderer:
@@ -75694,7 +75736,7 @@ GameObject:
   - component: {fileID: 889280643}
   m_Layer: 0
   m_Name: Basil
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75707,7 +75749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889280641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.69, y: -0.06, z: 0}
+  m_LocalPosition: {x: 2.61, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -92465,6 +92507,7 @@ GameObject:
   - component: {fileID: 1069042645}
   - component: {fileID: 1069042646}
   - component: {fileID: 1069042647}
+  - component: {fileID: 1069042648}
   m_Layer: 0
   m_Name: bookshelf
   m_TagString: Furniture
@@ -92485,7 +92528,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1069042646
 SpriteRenderer:
@@ -92568,6 +92611,19 @@ PolygonCollider2D:
       - {x: -1.4375, y: -1.40625}
       - {x: 1.4375, y: -1.40625}
       - {x: 1.4375, y: 1.40625}
+--- !u!114 &1069042648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069042644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1b374398ad44179137c26ec3d1e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureData: {fileID: 0}
 --- !u!1 &1069161459
 GameObject:
   m_ObjectHideFlags: 0
@@ -93380,7 +93436,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1716008775}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -94811,7 +94867,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.033339977, y: -0.18336785}
-  m_Size: {x: 1.7002249, y: 2.2669032}
+  m_Size: {x: 1.5, y: 2}
   m_Direction: 0
 --- !u!1 &1136086929
 GameObject:
@@ -96738,6 +96794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1181099965}
   - component: {fileID: 1181099966}
+  - component: {fileID: 1181099967}
   m_Layer: 0
   m_Name: painting
   m_TagString: Untagged
@@ -96758,7 +96815,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1181099966
 SpriteRenderer:
@@ -96812,6 +96869,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1181099967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181099964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1b374398ad44179137c26ec3d1e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureData: {fileID: 0}
 --- !u!1 &1193424128
 GameObject:
   m_ObjectHideFlags: 0
@@ -97740,7 +97810,7 @@ GameObject:
   - component: {fileID: 1227462219}
   m_Layer: 0
   m_Name: Jackie
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100841,7 +100911,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1716008775}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -101251,7 +101321,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1336444233
 SpriteRenderer:
@@ -104319,7 +104389,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1716008775}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -107214,7 +107284,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1716008775}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -108551,7 +108621,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1509093544
 SpriteRenderer:
@@ -108833,7 +108903,7 @@ GameObject:
   - component: {fileID: 1519037202}
   m_Layer: 0
   m_Name: Coco
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109992,7 +110062,7 @@ GameObject:
   - component: {fileID: 1561868887}
   m_Layer: 0
   m_Name: Hazel
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110977,20 +111047,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1336444232}
   - {fileID: 246685459}
   - {fileID: 87896144}
-  - {fileID: 1336444232}
   - {fileID: 337162969}
   - {fileID: 1672753878}
-  - {fileID: 838134731}
   - {fileID: 1181099965}
   - {fileID: 1946936602}
+  - {fileID: 1069042645}
   - {fileID: 1006452221}
   - {fileID: 1975817251}
   - {fileID: 1208865198}
-  - {fileID: 1069042645}
   - {fileID: 1509093543}
   - {fileID: 612610497}
+  - {fileID: 838134731}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112897,6 +112967,7 @@ GameObject:
   - component: {fileID: 1672753878}
   - component: {fileID: 1672753879}
   - component: {fileID: 1672753880}
+  - component: {fileID: 1672753881}
   m_Layer: 0
   m_Name: fireplace
   m_TagString: Furniture
@@ -113003,6 +113074,19 @@ PolygonCollider2D:
       - {x: 0.6875, y: 1.28125}
       - {x: -0.5625, y: 1.28125}
       - {x: -0.8125, y: 0.40625}
+--- !u!114 &1672753881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672753877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1b374398ad44179137c26ec3d1e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureData: {fileID: 0}
 --- !u!1 &1673567020
 GameObject:
   m_ObjectHideFlags: 0
@@ -114232,12 +114316,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1932473921}
   - {fileID: 1331369218}
   - {fileID: 1486235251}
   - {fileID: 2135149788}
   - {fileID: 1405470367}
   - {fileID: 1074457108}
-  - {fileID: 1932473921}
   m_Father: {fileID: 1595020110}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -120531,13 +120615,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932473920}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1716008775}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -121082,6 +121166,7 @@ GameObject:
   - component: {fileID: 1946936602}
   - component: {fileID: 1946936603}
   - component: {fileID: 1946936604}
+  - component: {fileID: 1946936605}
   m_Layer: 0
   m_Name: coffeetable
   m_TagString: Furniture
@@ -121102,7 +121187,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586153136}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1946936603
 SpriteRenderer:
@@ -121185,6 +121270,19 @@ PolygonCollider2D:
       - {x: -0.75, y: -0.59375}
       - {x: 0.75, y: -0.59375}
       - {x: 0.75, y: 0.59375}
+--- !u!114 &1946936605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946936601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1b374398ad44179137c26ec3d1e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureData: {fileID: 0}
 --- !u!1 &1948640544
 GameObject:
   m_ObjectHideFlags: 0
@@ -126829,7 +126927,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1716008775}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -128215,11 +128313,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7216683494947552799, guid: db52ebc6ed68f40229e4f29bedec62bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.54
+      value: -2.43
       objectReference: {fileID: 0}
     - target: {fileID: 7216683494947552799, guid: db52ebc6ed68f40229e4f29bedec62bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 7216683494947552799, guid: db52ebc6ed68f40229e4f29bedec62bc, type: 3}
       propertyPath: m_LocalPosition.z
