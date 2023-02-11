@@ -18,6 +18,10 @@ public class ClickDialogueOption : MonoBehaviour
         catList[catId].ClickPlay();
     }
 
+    public void OnClickBribe()
+    {
+        catList[catId].ClickBribe();
+    }
     public void OnClickQuit()
     {
         catList[catId].ClickQuit();
@@ -36,6 +40,16 @@ public class ClickDialogueOption : MonoBehaviour
     public void OnQuitGame()
     {
         catList[catId].QuitGame();
+    }
+
+    public void OnPickItem(ItemSO bribeItem)
+    {
+        catList[catId].PickItem(bribeItem);
+    }
+
+    public void OnConfirmItem(bool response)
+    {
+        catList[catId].ConfirmItem(response);
     }
 
 }

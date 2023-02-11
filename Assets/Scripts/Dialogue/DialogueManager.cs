@@ -11,6 +11,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public GameObject dialogueOptions;
     [SerializeField] GameObject gameOptions;
+    [SerializeField] GameObject bribePanel;
+    [SerializeField] GameObject confirmPanel;
+    [SerializeField] TMP_Text bribeConfirmText;
+    ItemSO bribeItem;
     public GameObject characterSprite; 
     public TMP_Text nameText;
     public ClickDialogueOption choiceButtons;
@@ -31,6 +35,8 @@ public class DialogueManager : MonoBehaviour
         winGame,
         loseGame,
         bribe,
+        acceptBribe,
+        rejectBribe,
         showClue,
         afterClue,
         noMoreClues,
@@ -135,6 +141,16 @@ public class DialogueManager : MonoBehaviour
                 currentState = State.askForAction;
                 break;
             case State.bribe:
+                textComponent.text = dialogue.bribe[0];
+                bribePanel.SetActive(true);
+                break;
+            case State.acceptBribe:
+                textComponent.text = dialogue.bribe[1];
+                currentState = State.showClue;
+                break;
+            case State.rejectBribe:
+                textComponent.text = dialogue.bribe[2];
+                currentState = State.askForAction;
                 break;
             case State.showClue:
                 ShowClue();
@@ -171,6 +187,43 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+    public void ClickBribe()
+    {
+        currentState = State.bribe;
+        dialogueOptions.SetActive(false);
+        DisplayNextSentence();
+    }
+
+    public void PickItem(ItemSO selectedItem)
+    {
+        bribeItem = selectedItem;
+        confirmPanel.SetActive(true);
+        bribeConfirmText.text = "Give " + dialogue.name + " " + bribeItem.itemName + "?";
+    }
+
+    public void ConfirmItem(bool response)
+    {
+        if(response)
+        {
+            confirmPanel.SetActive(false);
+            bribePanel.SetActive(false);
+            if(bribeItem.pickyFactor <= dialogue.pickyIndex)
+            {
+                currentState = State.acceptBribe;
+                Inventory.GetInstance().RemoveItem(bribeItem.id);
+            }
+            else
+            {
+                currentState = State.rejectBribe;
+            }
+            DisplayNextSentence();
+        }
+        else
+        {
+            bribeItem = null;
+            confirmPanel.SetActive(false);
+        }
+    }
     public void ClickStart()
     {
         currentState = State.startGame;
@@ -215,6 +268,8 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         dialogueOptions.SetActive(false);
+        gameOptions.SetActive(false);
+        bribePanel.SetActive(false);
         characterSprite.SetActive(false);
         dialogueStarted = false;
         menu.SetActive(true);

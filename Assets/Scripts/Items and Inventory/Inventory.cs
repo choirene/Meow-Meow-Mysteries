@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] GameObject[] inventorySlots;
     [SerializeField] TMP_Text[] inventoryQuantities;
+    [SerializeField] GameObject[] bribeSlots;
+    [SerializeField] TMP_Text[] bribeQuantities;
     [SerializeField] ItemSO[] itemData;
     [SerializeField] FurnitureSO[] furnitureData;
     public static Inventory instance;
@@ -20,13 +22,11 @@ public class Inventory : MonoBehaviour
         instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
 
-        foreach(var item in itemData)
+        for(int i = 0; i < itemData.Length; i++)
         {
-            item.quantity = 0;
-        }
-        foreach(var itemSlot in inventorySlots)
-        {
-            itemSlot.SetActive(false);
+            itemData[i].quantity = 0;
+            inventorySlots[i].SetActive(false);
+            bribeSlots[i].SetActive(false);
         }
         foreach(var furniture in furnitureData)
         {
@@ -46,6 +46,7 @@ public class Inventory : MonoBehaviour
         if(itemData[itemId].quantity == 0)
         {
             inventorySlots[itemId].SetActive(true);
+            bribeSlots[itemId].SetActive(true);
         }
         itemData[itemId].quantity ++;
         UpdateUI();
@@ -56,6 +57,7 @@ public class Inventory : MonoBehaviour
         if(itemData[itemId].quantity == 0)
         {
             inventorySlots[itemId].SetActive(false);
+            bribeSlots[itemId].SetActive(false);
         }
         UpdateUI();
     }
@@ -64,6 +66,7 @@ public class Inventory : MonoBehaviour
         for(int i = 0; i < inventorySlots.Length; i ++)
         {
             inventoryQuantities[i].text = itemData[i].quantity.ToString();
+            bribeQuantities[i].text = itemData[i].quantity.ToString();
         }
     }
 }

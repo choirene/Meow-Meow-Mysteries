@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
-    // Start is called before the first frame update
     private void Awake()
     {
         if(SceneManager.GetActiveScene().name == "WinScene" || SceneManager.GetActiveScene().name == "LoseScene")
         {
             Destroy(GameObject.Find("MenuCanvas"));
             Destroy(GameObject.Find("SolutionAndHintData"));
+            Destroy(GameObject.Find("Inventory"));
         }
     }
     void Start()
