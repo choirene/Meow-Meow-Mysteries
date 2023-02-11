@@ -75374,7 +75374,7 @@ GameObject:
   - component: {fileID: 838134735}
   m_Layer: 0
   m_Name: RECORDPLAYER
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75489,8 +75489,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.026159048, y: -0.03269899}
-  m_Size: {x: 2.764419, y: 2.7644193}
+  m_Offset: {x: -0.036186695, y: 0.047522068}
+  m_Size: {x: 2.42348, y: 2.6039772}
   m_Direction: 0
 --- !u!114 &838134735
 MonoBehaviour:
@@ -131510,6 +131510,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3231053353049792882, guid: 4c1589994803e4dbf946f0496597efbe, type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231053353049792882, guid: 4c1589994803e4dbf946f0496597efbe, type: 3}
+      propertyPath: soundEffects.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ce550b488cea40559d0e35e5de785fa, type: 3}
     - target: {fileID: 3231053353049792885, guid: 4c1589994803e4dbf946f0496597efbe, type: 3}
       propertyPath: m_RootOrder
       value: 10

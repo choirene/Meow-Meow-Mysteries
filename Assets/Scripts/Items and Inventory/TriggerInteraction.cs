@@ -70,7 +70,7 @@ public class TriggerInteraction : MonoBehaviour
         {
             case State.startedInteraction:
                 dialogueText.text = furnitureData.flavorText;
-                int randomInt = Random.Range(0,1);
+                int randomInt = Random.Range(0,4);
                 if(furnitureData.yieldPossible && randomInt == 0)
                 {
                     currentState = State.discovery;
@@ -85,6 +85,7 @@ public class TriggerInteraction : MonoBehaviour
                 currentState = State.foundItem;
                 break;
             case State.foundItem:
+                SoundEffects.GetInstance().PlayWinSound();
                 int randomItem = Random.Range(0, furnitureData.potentialYields.Length);
                 ItemSO item = furnitureData.potentialYields[randomItem];
                 dialogueText.text = "You found " + item.itemName + "!";
