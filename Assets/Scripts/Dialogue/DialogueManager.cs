@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueOptions;
     [SerializeField] GameObject gameOptions;
     public GameObject characterSprite; 
+    public TMP_Text nameText;
     public ClickDialogueOption choiceButtons;
     public TMP_Text textComponent;
     bool atCapacity;
@@ -73,6 +74,7 @@ public class DialogueManager : MonoBehaviour
         menu.SetActive(false);
 
         characterSprite.SetActive(true);
+        nameText.text = dialogue.name;
         choiceButtons.catId = dialogue.id;
 
         SoundEffects.GetInstance().PlayMeow();

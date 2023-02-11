@@ -92,14 +92,14 @@ public class SolutionAndHintData : MonoBehaviour
         {
             int randomIndex = Random.Range(0, extraHints.Count);
             string newHint = hintGenerator.CreateNewHint(extraHints[randomIndex], solutionList);
-            while(newHint.Contains(catName))
+            while(newHint.Contains(catName) || convertedHintList.Contains(newHint))
             {
                 randomIndex = Random.Range(0, extraHints.Count);
                 newHint = hintGenerator.CreateNewHint(extraHints[randomIndex], solutionList);
             }
             convertedHintList.Add(newHint);
         }
-        if(convertedHintList.Count >= 25)
+        if(convertedHintList.Count >= 30)
         {
             atCapacity = true;
         }
