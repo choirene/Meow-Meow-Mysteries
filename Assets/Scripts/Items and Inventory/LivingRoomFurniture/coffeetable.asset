@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c7d1506d92f348af9064e900e6eb63e, type: 2}
   - {fileID: 11400000, guid: 5e063ea98d6024476bc4bf3d9d92f24d, type: 2}
   - {fileID: 11400000, guid: 96528bc0d76fc46aa81f67b56505f676, type: 2}
-  yieldPossible: 1
+  yieldPossible: 0

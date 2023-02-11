@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Treat
   m_EditorClassIdentifier: 
   itemName: a squeezy treat
-  type: 0
+  id: 7
+  quantity: 1
   pickyFactor: 1
   icon: {fileID: 21300000, guid: 11a190c710c334ed2b4d808f45ab347e, type: 3}

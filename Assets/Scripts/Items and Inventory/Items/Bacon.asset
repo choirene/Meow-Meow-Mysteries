@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bacon
   m_EditorClassIdentifier: 
   itemName: a pack of bacon
-  type: 0
+  id: 0
+  quantity: 0
   pickyFactor: 3
   icon: {fileID: 21300000, guid: 9ba683110267749dead89174043c0899, type: 3}

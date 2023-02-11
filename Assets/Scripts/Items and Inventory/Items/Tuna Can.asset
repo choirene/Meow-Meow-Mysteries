@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Tuna Can
   m_EditorClassIdentifier: 
   itemName: a can of tuna
-  type: 0
+  id: 8
+  quantity: 0
   pickyFactor: 0
   icon: {fileID: 21300000, guid: d862bb8f2fa50467cac912a832cd7302, type: 3}

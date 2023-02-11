@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lettuce
   m_EditorClassIdentifier: 
   itemName: a head of lettuce
-  type: 0
+  id: 2
+  quantity: 0
   pickyFactor: 5
   icon: {fileID: 21300000, guid: 63f7d5cc8c9924ee5bba9b247e40f0c7, type: 3}

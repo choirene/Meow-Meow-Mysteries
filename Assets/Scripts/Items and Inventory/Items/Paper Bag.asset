@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Paper Bag
   m_EditorClassIdentifier: 
   itemName: a paper bag
-  type: 0
+  id: 3
+  quantity: 1
   pickyFactor: 2
   icon: {fileID: 21300000, guid: f1a8b3b582cdc46dcb1ef2d4085f78a4, type: 3}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bread
   m_EditorClassIdentifier: 
   itemName: a loaf of bread
-  type: 0
+  id: 1
+  quantity: 0
   pickyFactor: 4
   icon: {fileID: 21300000, guid: cc3fedfa7ab3c4bf9b2566e0e986d81f, type: 3}

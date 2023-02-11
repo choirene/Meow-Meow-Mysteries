@@ -6,7 +6,8 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     [SerializeField] public string itemName;
-    [SerializeField] int type;
+    [SerializeField] public int id;
+    public int quantity;
     [SerializeField] public int pickyFactor;
     [SerializeField] public Sprite icon;
 }

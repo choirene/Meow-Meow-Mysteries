@@ -86,8 +86,9 @@ public class TriggerInteraction : MonoBehaviour
                 break;
             case State.foundItem:
                 int randomItem = Random.Range(0, furnitureData.potentialYields.Length);
-                Debug.Log("you found " + furnitureData.potentialYields[randomItem].itemName);
-                // add inventory code
+                ItemSO item = furnitureData.potentialYields[randomItem];
+                dialogueText.text = "You found " + item.itemName + "!";
+                Inventory.GetInstance().AddItem(item.id);
                 furnitureData.yieldPossible = false;
                 currentState = State.end;
                 break;
