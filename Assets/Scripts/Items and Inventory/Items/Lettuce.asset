@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ed6f39b1db8a47dc952a1b70afd8edd, type: 3}
-  m_Name: New Item
+  m_Name: Lettuce
   m_EditorClassIdentifier: 
+  itemName: a head of lettuce
   type: 0
-  pickyFactor: 0
-  icon: {fileID: 0}
+  pickyFactor: 5
+  icon: {fileID: 21300000, guid: 63f7d5cc8c9924ee5bba9b247e40f0c7, type: 3}

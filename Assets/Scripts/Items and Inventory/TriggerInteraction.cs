@@ -10,8 +10,10 @@ public class TriggerInteraction : MonoBehaviour
     [SerializeField] GameObject characterSprite;
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text dialogueText;
+    [SerializeField] Rigidbody2D rbPlayer;
     bool playerInRange;
     bool npcInRange;
+    bool rbInRange;
     FurnitureSO furnitureData;
     State currentState;
 
@@ -47,6 +49,11 @@ public class TriggerInteraction : MonoBehaviour
                 ContinueInteraction();
             }
         }
+        if(rbInRange && rbPlayer.IsSleeping())
+            {
+                rbPlayer.WakeUp();
+            }
+
     }
     void StartInteraction()
     {
@@ -79,7 +86,7 @@ public class TriggerInteraction : MonoBehaviour
                 break;
             case State.foundItem:
                 int randomItem = Random.Range(0, furnitureData.potentialYields.Length);
-                Debug.Log("you found a " + randomItem);
+                Debug.Log("you found " + furnitureData.potentialYields[randomItem].itemName);
                 // add inventory code
                 furnitureData.yieldPossible = false;
                 currentState = State.end;
@@ -102,6 +109,21 @@ public class TriggerInteraction : MonoBehaviour
         {
             npcInRange = true;
         }
+        // if(other.CompareTag("Furniture"))
+        // {
+        //     if(currentState == State.notActive)
+        //     {
+        //         playerInRange = true;
+        //         furnitureData = other.GetComponent<Interactable>().furnitureData;
+        //         currentState = State.active;
+        //         Debug.Log("SO set");
+        //         Debug.Log(furnitureData);
+        //     }
+        // }
+    }
+    private void OnTriggerStay2D(Collider2D other) 
+    {
+        rbInRange = true;
         if(other.CompareTag("Furniture"))
         {
             if(currentState == State.notActive)
@@ -109,6 +131,8 @@ public class TriggerInteraction : MonoBehaviour
                 playerInRange = true;
                 furnitureData = other.GetComponent<Interactable>().furnitureData;
                 currentState = State.active;
+                Debug.Log("SO set");
+                Debug.Log(furnitureData);
             }
         }
     }
@@ -121,6 +145,7 @@ public class TriggerInteraction : MonoBehaviour
         if(other.CompareTag("Furniture"))
         {
             playerInRange = false;
+            rbInRange = false;
             EndInteraction();
         }
     }
