@@ -109,17 +109,6 @@ public class TriggerInteraction : MonoBehaviour
         {
             npcInRange = true;
         }
-        // if(other.CompareTag("Furniture"))
-        // {
-        //     if(currentState == State.notActive)
-        //     {
-        //         playerInRange = true;
-        //         furnitureData = other.GetComponent<Interactable>().furnitureData;
-        //         currentState = State.active;
-        //         Debug.Log("SO set");
-        //         Debug.Log(furnitureData);
-        //     }
-        // }
     }
     private void OnTriggerStay2D(Collider2D other) 
     {

@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 686781a3107074bccb17198f9190880e, type: 3}
-  m_Name: backsofa
+  m_Name: fireplace
   m_EditorClassIdentifier: 
-  flavorText: A nice scratching post. Too bad Basil already got most of it.
+  flavorText: Fun to look at. Too bad it's fake. Apparently, Jackie can't be trusted
+    around live fire.
   id: 0
-  potentialYields:
-  - {fileID: 11400000, guid: 5e063ea98d6024476bc4bf3d9d92f24d, type: 2}
-  - {fileID: 11400000, guid: 96528bc0d76fc46aa81f67b56505f676, type: 2}
-  yieldPossible: 1
+  potentialYields: []
+  yieldPossible: 0
