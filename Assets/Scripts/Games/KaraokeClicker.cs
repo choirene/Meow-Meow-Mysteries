@@ -12,6 +12,8 @@ public class KaraokeClicker : MonoBehaviour
     [SerializeField] Image rightTimerImage;
     [SerializeField] Image leftTimerImage;
     [SerializeField] TMP_Text text;
+    [SerializeField] TMP_Text basilPercent;
+    [SerializeField] TMP_Text percyPercent;
     [Header("Buttons")]
     [SerializeField] GameObject startButton;
     [SerializeField] GameObject winButton;
@@ -22,11 +24,16 @@ public class KaraokeClicker : MonoBehaviour
     float timerValue;
     float fillFraction;
     float basilClicks;
+    int percyClicks;
+    float basilRate;
     public void StartGame()
     {
         basilClicks = 0;
         basilSlider.value = 0;
+        percyClicks = 0;
         percySlider.value = 0;
+        basilPercent.text = "0";
+        percyPercent.text = "0";
         rightTimerImage.fillAmount = 1;
         leftTimerImage.fillAmount = 1;
         text.text = "";
@@ -36,6 +43,7 @@ public class KaraokeClicker : MonoBehaviour
         quitButton.SetActive(false);
         gameStarted = false;
         timerValue = 10f;
+        basilRate = Random.Range(6.6f, 7.5f);
     }
 
     public void PressStart()
@@ -62,8 +70,9 @@ public class KaraokeClicker : MonoBehaviour
             fillFraction = timerValue / timeLimit;
             rightTimerImage.fillAmount = fillFraction;
             leftTimerImage.fillAmount = fillFraction;
-            basilClicks += (Time.deltaTime * (6.3f + Random.Range(0,.5f)));
+            basilClicks += (Time.deltaTime * basilRate);
             basilSlider.value = basilClicks;
+            basilPercent.text = ((int)Mathf.Round(basilClicks)).ToString();
         }
         else
         {
@@ -76,7 +85,7 @@ public class KaraokeClicker : MonoBehaviour
         SoundEffects.GetInstance().PlayAlarm();
         gameStarted = false;
         text.text = "";
-        if(percySlider.value > basilSlider.value)
+        if(percySlider.value > ((int)Mathf.Round(basilSlider.value)))
         {
             winButton.SetActive(true);
         }
@@ -91,10 +100,12 @@ public class KaraokeClicker : MonoBehaviour
     {
         if(gameStarted)
         {
-            if(percySlider.value < 80)
+            SoundEffects.GetInstance().PlayMeow();
+            percyClicks ++;
+            percyPercent.text = percyClicks.ToString();
+            if(percyClicks <= 75)
             {
-                percySlider.value ++;
-                SoundEffects.GetInstance().PlayMeow();
+                percySlider.value = percyClicks;
                 if(percySlider.value < 10)
                 {
                     text.text = "Better start singing!";
@@ -107,7 +118,7 @@ public class KaraokeClicker : MonoBehaviour
                 {
                     text.text = "Sing your heart out!";
                 }
-                else if(percySlider.value < 75)
+                else if(percySlider.value < 70)
                 {
                     text.text = "You're almost there!";
                 }

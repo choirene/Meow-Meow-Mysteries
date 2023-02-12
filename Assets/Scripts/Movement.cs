@@ -7,16 +7,8 @@ public class Movement : MonoBehaviour
 {
     public float speed;
     public Animator animator;
-
     private Vector3 direction;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -51,5 +43,9 @@ public class Movement : MonoBehaviour
                 animator.SetBool("isMoving", false);
             }
         }
+    }
+    public void StopMovement()
+    {
+        animator.SetBool("isMoving", false);
     }
 }

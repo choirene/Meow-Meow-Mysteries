@@ -6,6 +6,7 @@ using TMPro;
 
 public class TriggerInteraction : MonoBehaviour
 {
+    [SerializeField] GameObject player;
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] GameObject characterSprite;
     [SerializeField] TMP_Text nameText;
@@ -42,7 +43,6 @@ public class TriggerInteraction : MonoBehaviour
             if(currentState == State.active)
             {
                 StartInteraction();
-                Debug.Log("interaction started");
             }
             else
             {
@@ -50,10 +50,9 @@ public class TriggerInteraction : MonoBehaviour
             }
         }
         if(rbInRange && rbPlayer.IsSleeping())
-            {
-                rbPlayer.WakeUp();
-            }
-
+        {
+            rbPlayer.WakeUp();
+        }
     }
     void StartInteraction()
     {
@@ -69,8 +68,10 @@ public class TriggerInteraction : MonoBehaviour
         switch(currentState)
         {
             case State.startedInteraction:
+                player.GetComponent<Movement>().StopMovement();
+                player.GetComponent<Movement>().enabled = false;
                 dialogueText.text = furnitureData.flavorText;
-                int randomInt = Random.Range(0,4);
+                int randomInt = Random.Range(0,2);
                 if(furnitureData.yieldPossible && randomInt == 0)
                 {
                     currentState = State.discovery;
@@ -100,6 +101,7 @@ public class TriggerInteraction : MonoBehaviour
     }
     void EndInteraction()
     {
+        player.GetComponent<Movement>().enabled = true;
         dialoguePanel.SetActive(false);
         characterSprite.SetActive(false);
         nameText.text = "";
@@ -122,8 +124,6 @@ public class TriggerInteraction : MonoBehaviour
                 playerInRange = true;
                 furnitureData = other.GetComponent<Interactable>().furnitureData;
                 currentState = State.active;
-                Debug.Log("SO set");
-                Debug.Log(furnitureData);
             }
         }
     }

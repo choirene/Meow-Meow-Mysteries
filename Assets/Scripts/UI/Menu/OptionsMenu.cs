@@ -16,7 +16,7 @@ public class OptionsMenu : MonoBehaviour
     }
     public void SetVolume(float volume)
     {
-        if(volume == -50)
+        if(volume == -30)
         {
             audioMixer.SetFloat("volume", -80);
         }

@@ -22,7 +22,6 @@ public class AccusationManager : MonoBehaviour
                 solutionString = solutionString + thing;
             }
         }
-        Debug.Log(solutionString);
     }
 
     public void FinalAccusation(List<List<string>> accusationList)
