@@ -78919,7 +78919,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'No clues? Time to investigate!
+
+    Sniff out your surroundings and talk
+    to the suspects in order to solve the mystery. Once you gather some clues, they''ll
+    show up here!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}
   m_sharedMaterial: {fileID: -5528725944617821040, guid: 5025cfc5ea4db49389ed13d9cd0ddbc8, type: 2}

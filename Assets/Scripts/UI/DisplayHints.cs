@@ -8,10 +8,6 @@ public class DisplayHints : MonoBehaviour
 {
     [SerializeField] TMP_Text textComponent;
     List<string> hintList = new List<string>();
-    void Start()
-    {
-        textComponent.text = "No clues? Time to investigate! \nSniff out your surroundings and talk to the suspects in order to solve the mystery. Once you gather some clues, they'll show up here!";
-    }
     public void UpdateHints()
     {
         hintList = SolutionAndHintData.GetInstance().convertedHintList;
@@ -24,5 +20,4 @@ public class DisplayHints : MonoBehaviour
         }
         textComponent.text = hintText;
     }
-
 }

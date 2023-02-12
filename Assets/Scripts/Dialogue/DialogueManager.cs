@@ -156,7 +156,9 @@ public class DialogueManager : MonoBehaviour
                 currentState = State.askForAction;
                 break;
             case State.showClue:
-                ShowClue();
+                SolutionAndHintData.GetInstance().GenerateRandomHint(dialogue.name);
+                textComponent.text = SolutionAndHintData.GetInstance().convertedHintList[^1];
+                hintDisplay.UpdateHints();
                 currentState = State.afterClue;
                 break;
             case State.noMoreClues:
@@ -259,15 +261,6 @@ public class DialogueManager : MonoBehaviour
         currentState = State.goodbye;
         dialogueOptions.SetActive(false);
         DisplayNextSentence();
-    }
-
-    public void ShowClue()
-    {
-        SolutionAndHintData solutionData = SolutionAndHintData.GetInstance();
-        solutionData.GenerateRandomHint(dialogue.name);
-        string lastHint = solutionData.convertedHintList[^1];
-        textComponent.text = lastHint;
-        hintDisplay.UpdateHints();
     }
 
     public void EndDialogue()
