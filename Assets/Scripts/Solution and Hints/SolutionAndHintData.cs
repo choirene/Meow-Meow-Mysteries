@@ -26,11 +26,6 @@ public class SolutionAndHintData : MonoBehaviour
         solutionList = solution.generateSolution();
         GenerateTrueHints();
     }
-    void Start()
-    {
-        InitialHintGeneration();
-    }
-
     public static SolutionAndHintData GetInstance()
     {
         return instance;
@@ -104,17 +99,5 @@ public class SolutionAndHintData : MonoBehaviour
             atCapacity = true;
         }
         displayHints.GetComponent<DisplayHints>().UpdateHints();
-    }
-
-    void InitialHintGeneration()
-    {
-        while(convertedHintList.Count < 5)
-        {
-            int randomIndex = Random.Range(0, trueHints.Count);
-            string newHint = hintGenerator.CreateNewHint(trueHints[randomIndex], solutionList);
-            trueHints.RemoveAt(randomIndex);
-
-            convertedHintList.Add(newHint);
-        }
     }
 }

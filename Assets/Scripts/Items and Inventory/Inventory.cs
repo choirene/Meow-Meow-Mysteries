@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] ItemSO[] itemData;
     [SerializeField] FurnitureSO[] furnitureData;
     public static Inventory instance;
-    private void Start() 
+    private void Awake() 
     {
         if(instance != null)
         {

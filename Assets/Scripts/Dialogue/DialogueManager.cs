@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject gameOptions;
     [SerializeField] GameObject bribePanel;
     [SerializeField] GameObject confirmPanel;
+    [SerializeField] GameObject bribeQuitButton;
     [SerializeField] TMP_Text bribeConfirmText;
     ItemSO bribeItem;
     public GameObject characterSprite; 
@@ -143,6 +144,7 @@ public class DialogueManager : MonoBehaviour
             case State.bribe:
                 textComponent.text = dialogue.bribe[0];
                 bribePanel.SetActive(true);
+                bribeQuitButton.SetActive(true);
                 break;
             case State.acceptBribe:
                 textComponent.text = dialogue.bribe[1];
@@ -197,6 +199,7 @@ public class DialogueManager : MonoBehaviour
     public void PickItem(ItemSO selectedItem)
     {
         bribeItem = selectedItem;
+        bribeQuitButton.SetActive(false);
         confirmPanel.SetActive(true);
         bribeConfirmText.text = "Give " + dialogue.name + " " + bribeItem.itemName + "?";
     }
@@ -251,6 +254,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ClickQuit()
     {
+        bribePanel.SetActive(false);
         currentState = State.goodbye;
         dialogueOptions.SetActive(false);
         DisplayNextSentence();
@@ -270,6 +274,8 @@ public class DialogueManager : MonoBehaviour
         dialogueOptions.SetActive(false);
         gameOptions.SetActive(false);
         bribePanel.SetActive(false);
+        bribeQuitButton.SetActive(false);
+        confirmPanel.SetActive(false);
         characterSprite.SetActive(false);
         dialogueStarted = false;
         menu.SetActive(true);

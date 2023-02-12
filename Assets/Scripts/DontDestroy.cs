@@ -9,9 +9,9 @@ public class DontDestroy : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "WinScene" || SceneManager.GetActiveScene().name == "LoseScene")
         {
+            Destroy(GameObject.Find("Inventory"));
             Destroy(GameObject.Find("MenuCanvas"));
             Destroy(GameObject.Find("SolutionAndHintData"));
-            Destroy(GameObject.Find("Inventory"));
         }
     }
     void Start()
