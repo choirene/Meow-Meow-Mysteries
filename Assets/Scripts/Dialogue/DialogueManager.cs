@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject confirmPanel;
     [SerializeField] GameObject bribeQuitButton;
     [SerializeField] TMP_Text bribeConfirmText;
+    [SerializeField] DisplayHints hintDisplay;
     ItemSO bribeItem;
     public GameObject characterSprite; 
     public TMP_Text nameText;
@@ -266,6 +267,7 @@ public class DialogueManager : MonoBehaviour
         solutionData.GenerateRandomHint(dialogue.name);
         string lastHint = solutionData.convertedHintList[^1];
         textComponent.text = lastHint;
+        hintDisplay.UpdateHints();
     }
 
     public void EndDialogue()

@@ -68565,6 +68565,7 @@ MonoBehaviour:
   confirmPanel: {fileID: 646844010}
   bribeQuitButton: {fileID: 1346425415}
   bribeConfirmText: {fileID: 471845839}
+  hintDisplay: {fileID: 1795198110}
   characterSprite: {fileID: 1074457107}
   nameText: {fileID: 633941355}
   choiceButtons: {fileID: 318218788}
@@ -79773,6 +79774,7 @@ MonoBehaviour:
   confirmPanel: {fileID: 646844010}
   bribeQuitButton: {fileID: 1346425415}
   bribeConfirmText: {fileID: 471845839}
+  hintDisplay: {fileID: 1795198110}
   characterSprite: {fileID: 1486235250}
   nameText: {fileID: 633941355}
   choiceButtons: {fileID: 318218788}
@@ -102615,6 +102617,7 @@ MonoBehaviour:
   confirmPanel: {fileID: 646844010}
   bribeQuitButton: {fileID: 1346425415}
   bribeConfirmText: {fileID: 471845839}
+  hintDisplay: {fileID: 1795198110}
   characterSprite: {fileID: 1405470366}
   nameText: {fileID: 633941355}
   choiceButtons: {fileID: 318218788}
@@ -114703,6 +114706,7 @@ MonoBehaviour:
   confirmPanel: {fileID: 646844010}
   bribeQuitButton: {fileID: 1346425415}
   bribeConfirmText: {fileID: 471845839}
+  hintDisplay: {fileID: 1795198110}
   characterSprite: {fileID: 1331369217}
   nameText: {fileID: 633941355}
   choiceButtons: {fileID: 318218788}
@@ -115826,6 +115830,7 @@ MonoBehaviour:
   confirmPanel: {fileID: 646844010}
   bribeQuitButton: {fileID: 1346425415}
   bribeConfirmText: {fileID: 471845839}
+  hintDisplay: {fileID: 1795198110}
   characterSprite: {fileID: 2135149787}
   nameText: {fileID: 633941355}
   choiceButtons: {fileID: 318218788}

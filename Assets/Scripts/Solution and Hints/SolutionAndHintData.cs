@@ -10,7 +10,6 @@ public class SolutionAndHintData : MonoBehaviour
     List<List<string>> trueHints = new List<List<string>>();
     List<List<string>> extraHints = new List<List<string>>();
     public List<List<string>> solutionList = new List<List<string>>();
-    public GameObject displayHints;
     public bool atCapacity;
     public static SolutionAndHintData instance;
     void Awake() 
@@ -98,6 +97,5 @@ public class SolutionAndHintData : MonoBehaviour
         {
             atCapacity = true;
         }
-        displayHints.GetComponent<DisplayHints>().UpdateHints();
     }
 }
