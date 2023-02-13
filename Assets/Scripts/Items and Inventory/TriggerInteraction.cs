@@ -53,6 +53,10 @@ public class TriggerInteraction : MonoBehaviour
         {
             rbPlayer.WakeUp();
         }
+        if(dialoguePanel.activeInHierarchy == false && player.GetComponent<Movement>().enabled == false)
+        {
+            player.GetComponent<Movement>().enabled = true;
+        }
     }
     void StartInteraction()
     {

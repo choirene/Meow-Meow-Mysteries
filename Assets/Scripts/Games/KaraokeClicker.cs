@@ -43,7 +43,7 @@ public class KaraokeClicker : MonoBehaviour
         quitButton.SetActive(false);
         gameStarted = false;
         timerValue = 10f;
-        basilRate = Random.Range(6.6f, 7.5f);
+        basilRate = Random.Range(6.6f, 7.3f);
     }
 
     public void PressStart()
@@ -70,9 +70,9 @@ public class KaraokeClicker : MonoBehaviour
             fillFraction = timerValue / timeLimit;
             rightTimerImage.fillAmount = fillFraction;
             leftTimerImage.fillAmount = fillFraction;
-            basilClicks += (Time.deltaTime * basilRate);
-            basilSlider.value = basilClicks;
-            basilPercent.text = ((int)Mathf.Round(basilClicks)).ToString();
+            basilSlider.value += (Time.deltaTime * basilRate);
+            basilClicks = (int)Mathf.Round(basilSlider.value);
+            basilPercent.text = basilClicks.ToString();
         }
         else
         {
@@ -85,7 +85,7 @@ public class KaraokeClicker : MonoBehaviour
         SoundEffects.GetInstance().PlayAlarm();
         gameStarted = false;
         text.text = "";
-        if(percySlider.value > ((int)Mathf.Round(basilSlider.value)))
+        if(percyClicks > basilClicks)
         {
             winButton.SetActive(true);
         }

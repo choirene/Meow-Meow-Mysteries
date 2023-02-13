@@ -67013,8 +67013,7 @@ MonoBehaviour:
   suspectText: 'LUKIE
 
     A cat of few words, Lukie is a mischeivious trickster
-    whose victims and pranks range wide and far. His motives are enigmatic and his
-    motives inscrutable. '
+    whose victims and pranks range wide and far. His motives are enigmatic and inscrutable. '
 --- !u!114 &599012723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115804,7 +115803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561868885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.01, y: -1.69, z: 0}
+  m_LocalPosition: {x: -19.35, y: -1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -115881,8 +115880,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.033339977, y: -0.18336785}
-  m_Size: {x: 1.7002249, y: 2.2669032}
+  m_Offset: {x: 0.0183115, y: -0.2578832}
+  m_Size: {x: 1.5799999, y: 2.1178725}
   m_Direction: 0
 --- !u!61 &1561868889
 BoxCollider2D:
