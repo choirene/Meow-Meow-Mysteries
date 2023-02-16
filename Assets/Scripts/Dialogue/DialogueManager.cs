@@ -228,6 +228,7 @@ public class DialogueManager : MonoBehaviour
         {
             bribeItem = null;
             confirmPanel.SetActive(false);
+            bribeQuitButton.SetActive(true);
         }
     }
     public void ClickStart()
